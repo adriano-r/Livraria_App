@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Livraria_App.View.LoginUI"
+             x:Class="Livraria_App.View.LoginPage"
              BackgroundColor="#f1f1f1">
-    
-    <ContentPage.Content>
+
+    <ScrollView>
         <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-            <Image Source="user.png" WidthRequest="180" HeightRequest="180"></Image>
-            <Entry x:Name="txtUsername" Placeholder="Nome:" TextColor="White" PlaceholderColor="Gray"></Entry>
-            <Entry x:Name="txtPassword" Placeholder="Senha:" IsPassword="True" TextColor="White" PlaceholderColor="Gray"></Entry>
+            <Image Source="Login.png" WidthRequest="180" HeightRequest="180"></Image>
+            <Entry x:Name="txtNome" Placeholder="Nome:" PlaceholderColor="Gray"></Entry>
+            <Entry x:Name="txtSenha" Placeholder="Senha:" IsPassword="True" PlaceholderColor="Gray"></Entry>
             <Button 
                 VerticalOptions="Center" 
                 Text="Login"
@@ -32,5 +32,5 @@
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>

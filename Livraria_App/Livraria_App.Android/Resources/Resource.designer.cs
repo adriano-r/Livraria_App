@@ -16553,7 +16553,7 @@ namespace Livraria_App.Droid
 			public const int ic_mtrl_chip_close_circle = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int laravel = 2131165291;
+			public const int Login = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
 			public const int material_cursor_drawable = 2131165292;
@@ -16665,9 +16665,6 @@ namespace Livraria_App.Droid
 			
 			// aapt resource value: 0x7F070090
 			public const int tooltip_frame_light = 2131165328;
-			
-			// aapt resource value: 0x7F070091
-			public const int user = 2131165329;
 			
 			static Drawable()
 			{

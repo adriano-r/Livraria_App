@@ -11,8 +11,13 @@ namespace Livraria_App
         {
             InitializeComponent();
 
+#if DEBUG
+            HotReloader.Current.Run(this);
+#endif
+
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new Submenu());
+            MainPage = new NavigationPage(new LoginPage());
+            
         }
 
         protected override void OnStart()

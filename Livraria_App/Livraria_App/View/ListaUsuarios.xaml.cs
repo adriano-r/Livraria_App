@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Livraria_App.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SubmenuDetail : ContentPage
+    public partial class ListaUsuarios : ContentPage
     {
-        public SubmenuDetail()
+        public ListaUsuarios()
         {
             InitializeComponent();
         }
