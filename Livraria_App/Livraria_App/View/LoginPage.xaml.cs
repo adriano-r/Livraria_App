@@ -1,4 +1,5 @@
-﻿using Livraria_App.API;
+﻿using Android.Content.Res;
+using Livraria_App.API;
 using Livraria_App.Model;
 using Plugin.Connectivity;
 using System;
@@ -22,32 +23,37 @@ namespace Livraria_App.View
             listaUsuarios = new List<User>();
         }
 
-        public async void Logar()
+        public void Logar()
         {
 
             //listaUsuarios = await ApiService.ObterUser();
 
             //var usuario = listaUsuarios.Where(x => x.Nome.ToLower() == txtNome.Text.ToLower() && x.Senha.ToLower() == txtSenha.Text.ToLower()).ToList();
-            if (txtNome.Text == "admin" && txtSenha.Text == "123456")
+            if (txtEmail.Text == "admin" && txtSenha.Text == "123456")
             {
 
-                await Navigation.PushAsync(new ListaUsuarios());
+                Navigation.PushAsync(new MainPage());
             }
             else
             {
-                DisplayAlert("Acesso negado!", "Usuario ou Senha incorreta!", "Ok");
+                DisplayAlert("Ops...!", "Usuario ou Senha incorreta!", "Tente Novamente");
             }
         }
-    }
 
-    public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new RegisterPage());
-    }
+        public void Registrar() 
+        {
+            Navigation.PushAsync(new RegisterPage());
+        }
 
-    private void Button_Clicked(object sender, EventArgs e)
-    {
-        Logar();
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Registrar();
+        }
+
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Logar();
+        }
     }
-}
 }

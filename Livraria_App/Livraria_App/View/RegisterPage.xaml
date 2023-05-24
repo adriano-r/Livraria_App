@@ -4,29 +4,35 @@
              x:Class="Livraria_App.View.RegisterPage">
     <ScrollView>
         <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Label Text="Bem vindo!" HorizontalOptions="Center" FontSize="24" TextColor="Black" Margin="0,0,0,20"></Label>
+            <Image Source="Register.png" WidthRequest="180" HeightRequest="180"></Image>
             <Entry x:Name="txtNome" Placeholder="Nome:" PlaceholderColor="Gray"></Entry>
+            <Entry x:Name="txtSobrenome" Placeholder="Sobrenome:" PlaceholderColor="Gray"></Entry>
+            <Entry x:Name="txtEmail" Placeholder="Email:" PlaceholderColor="Gray"></Entry>
             <Entry x:Name="txtSenha" Placeholder="Senha:" IsPassword="True" PlaceholderColor="Gray"></Entry>
             <Button 
-                VerticalOptions="Center" 
-                Text="Login"
-                TextColor="OrangeRed" 
-                BackgroundColor="Transparent"
-                BorderColor="OrangeRed"
-                BorderWidth="1.5"
-                CornerRadius="50"
-                ></Button>
+            VerticalOptions="Center" 
+            Text="Registrar"
+            TextColor="White" 
+            BackgroundColor="OrangeRed"
+            BorderColor="OrangeRed"
+            BorderWidth="1.5"
+            CornerRadius="50"
+            Clicked="Button_Clicked"
+            ></Button>
 
             <Label HorizontalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Já possui conta?" TextColor="Gray"></Span>
-                        <Span Text="Registrar?" TextColor="Gray" FontAttributes="Bold" TextDecorations="Underline"></Span>
+                        <Span Text="Já possui uma conta?" TextColor="Gray"></Span>
+                        <Span Text=" Fazer Login" TextColor="Gray" FontAttributes="Bold" TextDecorations="Underline"></Span>
                     </FormattedString>
                 </Label.FormattedText>
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer  />
+                    <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped"/>
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
     </ScrollView>
+
 </ContentPage>
