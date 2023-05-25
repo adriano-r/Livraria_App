@@ -1,6 +1,7 @@
 ﻿using Android.Content.Res;
 using Livraria_App.API;
 using Livraria_App.Model;
+using Livraria_App.View.Submenu;
 using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace Livraria_App.View
             if (txtEmail.Text == "admin" && txtSenha.Text == "123456")
             {
 
-                Navigation.PushAsync(new MainPage());
+                Navigation.PushAsync(new SubmenuPage());
             }
             else
             {

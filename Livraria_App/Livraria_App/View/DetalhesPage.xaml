@@ -17,7 +17,7 @@
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10" VerticalOptions="Center">
-                        <Image Source="Book_Xamarin.png" Aspect="AspectFill"></Image>
+                        <Image Source="{Binding Imagem}" Aspect="AspectFill"></Image>
                         <Label Text="{Binding Titulo}" FontSize="24" FontAttributes="Bold" TextColor="Black"></Label>
                         <Label Text="{Binding Descricao}" FontSize="16" TextColor="Gray"></Label>
                     </StackLayout>
@@ -30,7 +30,7 @@
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10" Orientation="Horizontal">
-                        <Image Source="Book_CSharp.jpg" WidthRequest="80" HeightRequest="80"></Image>
+                        <Image Source="{Binding Imagem}" WidthRequest="80" HeightRequest="80"></Image>
                         <StackLayout VerticalOptions="Center">
                             <Label Text="{Binding Titulo}" FontSize="18" FontAttributes="Bold"></Label>
                             <Label Text="{Binding Descricao}" FontSize="14"></Label>
@@ -40,4 +40,5 @@
             </CarouselView.ItemTemplate>
         </CarouselView>
     </StackLayout>
+
 </ContentPage>

@@ -23,8 +23,8 @@ namespace Livraria_App.View.Submenu
 
             BindingContext = new SubmenuPageFlyoutViewModel();
             ListView = MenuItemsListView;
-        }
 
+        }
         private class SubmenuPageFlyoutViewModel : INotifyPropertyChanged
         {
             public ObservableCollection<SubmenuPageFlyoutMenuItem> MenuItems { get; set; }
@@ -33,11 +33,11 @@ namespace Livraria_App.View.Submenu
             {
                 MenuItems = new ObservableCollection<SubmenuPageFlyoutMenuItem>(new[]
                 {
-                    new SubmenuPageFlyoutMenuItem { Id = 0, Title = "Page 1" },
-                    new SubmenuPageFlyoutMenuItem { Id = 1, Title = "Page 2" },
-                    new SubmenuPageFlyoutMenuItem { Id = 2, Title = "Page 3" },
-                    new SubmenuPageFlyoutMenuItem { Id = 3, Title = "Page 4" },
-                    new SubmenuPageFlyoutMenuItem { Id = 4, Title = "Page 5" },
+                    new SubmenuPageFlyoutMenuItem { Id = 0, Icon = "home.png" ,Title = "Dashboard", TargetType=typeof(HomePage) },
+                    new SubmenuPageFlyoutMenuItem { Id = 1, Icon = "livro.png", Title = "Categorias", TargetType = typeof(LoginPage) },
+                    new SubmenuPageFlyoutMenuItem { Id = 2, Icon = "livro.png", Title = "Livros" , TargetType = typeof(HomePage)},
+                    new SubmenuPageFlyoutMenuItem { Id = 3, Icon = "user.png",Title = "Usuarios" , TargetType = typeof(HomePage)},
+                    new SubmenuPageFlyoutMenuItem { Id = 4, Icon = "carrinho.png", Title = "Reservados" , TargetType = typeof(HomePage)},
                 });
             }
 

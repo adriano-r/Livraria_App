@@ -7,9 +7,9 @@
     <StackLayout>
         <!-- Submenu -->
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button Text="Opção 1"  />
-            <Button Text="Opção 2"  />
-            <Button Text="Opção 3"  />
+            <Button Text="Opção 1" />
+            <Button Text="Opção 2" />
+            <Button Text="Opção 3" />
         </StackLayout>
 
         <!-- Carrossel de Livros Destacados -->
@@ -20,6 +20,8 @@
                         <Image Source="Book_Xamarin.png" Aspect="AspectFill"></Image>
                         <Label Text="{Binding Titulo}" FontSize="24" FontAttributes="Bold" TextColor="Black"></Label>
                         <Label Text="{Binding Descricao}" FontSize="16" TextColor="Gray"></Label>
+                        <Label Text="{Binding Quantidade}" FontSize="16" TextColor="Gray"></Label>
+                        <Label Text="{Binding Autor}" FontSize="16" TextColor="Gray"></Label>
                     </StackLayout>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
@@ -34,6 +36,8 @@
                         <StackLayout VerticalOptions="Center">
                             <Label Text="{Binding Titulo}" FontSize="18" FontAttributes="Bold"></Label>
                             <Label Text="{Binding Descricao}" FontSize="14"></Label>
+                            <Label Text="{Binding Quantidade}" FontSize="14"></Label>
+                            <Label Text="{Binding Autor}" FontSize="14"></Label>
                         </StackLayout>
                     </StackLayout>
                 </DataTemplate>

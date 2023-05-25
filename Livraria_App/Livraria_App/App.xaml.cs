@@ -1,4 +1,5 @@
 ﻿using Livraria_App.View;
+using Livraria_App.View.Submenu;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,7 +17,7 @@ namespace Livraria_App
 #endif
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new SubmenuPage());
             
         }
 
