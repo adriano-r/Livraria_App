@@ -22,18 +22,18 @@ namespace Livraria_App
             // Preencha os dados dos livros destacados
             LivrosDestacados = new List<Livro>()
         {
-            new Livro("Livro 1", "Autor 1", "Descrição do Livro Destacado 1", 10),
-            new Livro("Livro 2", "Autor 2", "Descrição do Livro Destacado 1", 10),
-            new Livro("Livro 3", "Autor 3", "Descrição do Livro Destacado 1", 10)
+            new Livro("Livro 1", "Autor 1", "Descrição do Livro Destacado 1", 10, "Book_CSharp.jpg"),
+            new Livro("Livro 2", "Autor 2", "Descrição do Livro Destacado 1", 10, "Book_CSharp.jpg"),
+            new Livro("Livro 3", "Autor 3", "Descrição do Livro Destacado 1", 10, "Book_CSharp.jpg")
         };
 
             // Preencha os dados dos outros livros
             OutrosLivros = new List<Livro>()
         {
-            new Livro("Outro Livro", "Outro Autor", "Descrição do Outro Livro", 5),
-            new Livro("Outro Livro", "Outro Autor", "Descrição do Outro Livro", 5),
-            new Livro("Outro Livro", "Outro Autor", "Descrição do Outro Livro", 5),
-            new Livro("Outro Livro", "Outro Autor", "Descrição do Outro Livro", 5)
+            new Livro("Outro Livro", "Outro Autor", "Descrição do Outro Livro", 5, "Book_CSharp.jpg"),
+            new Livro("Outro Livro", "Outro Autor", "Descrição do Outro Livro", 5, "Book_CSharp.jpg"),
+            new Livro("Outro Livro", "Outro Autor", "Descrição do Outro Livro", 5, "Book_CSharp.jpg"),
+            new Livro("Outro Livro", "Outro Autor", "Descrição do Outro Livro", 5, "Book_CSharp.jpg")
         };
 
             // Atribua a origem de dados aos carrosséis

@@ -1,0 +1,30 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Livraria_App.View.ListaLivros"
+             Title="Lista de Livros">
+    <ContentPage.Content>
+        <ListView x:Name="MyListView"
+          ItemTapped="MyListView_ItemTapped"
+          CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Grid>
+                                <Image Source="{Binding Imagem}" Aspect="AspectFill" VerticalOptions="CenterAndExpand" />
+                                
+                                    <Label Text="{Binding Titulo}" FontSize="18" />
+                                    <Label Text="{Binding Autor}" FontSize="14" TextColor="Gray" />
+                                    <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                    <Label Text="{Binding Quantidade, StringFormat='Quantidade: {0}'}" FontSize="14" TextColor="Gray" />
+                                    <Button Text="Ver detalhes" Clicked="VerDetalhesButtonClicked" CommandParameter="{Binding Id}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                                
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </ContentPage.Content>
+</ContentPage>

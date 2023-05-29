@@ -20,8 +20,8 @@ namespace Livraria_App.View.Submenu
 
         private void ReserveButton_Clicked(object sender, EventArgs e)
         {
-            var livro = new Livro("Título do Livro", "Autor do Livro", "Descrição do Livro", 10);
-            DisplayAlert("Reserva", $"Livro '{livro.Titulo}' reservado com sucesso!", "OK");
+            //var livro = new Livro("Título do Livro", "Autor do Livro", "Descrição do Livro", 10);
+            //DisplayAlert("Reserva", $"Livro '{livro.Titulo}' reservado com sucesso!", "OK");
         }
     }
 }

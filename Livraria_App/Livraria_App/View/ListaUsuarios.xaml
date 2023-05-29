@@ -1,12 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Livraria_App.View.ListaUsuarios">
+             x:Class="Livraria_App.View.ListaUsuarios"
+             Title="Lista de Usuários">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="UsuariosListView"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="true"
+                      ItemsSource="{Binding Usuarios}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" HorizontalOptions="FillAndExpand">
+                                <Grid Padding="5,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding Avatar}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" VerticalOptions="CenterAndExpand" />
+                                    <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                        <Label Text="{Binding Nome}" FontSize="18" />
+                                        <Label Text="{Binding Sobrenome}" FontSize="14" TextColor="Gray" />
+                                        <Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
+                                    </StackLayout>
+                                    <Button Grid.Column="2" Text="Editar" Clicked="EditarButtonClicked" CommandParameter="{Binding Id}" />
+                                    <Button Grid.Column="2" Text="Remover" Clicked="RemoverButtonClicked" CommandParameter="{Binding Id}" />
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

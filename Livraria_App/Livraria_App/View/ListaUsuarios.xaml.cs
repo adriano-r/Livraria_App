@@ -12,9 +12,59 @@ namespace Livraria_App.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaUsuarios : ContentPage
     {
+        public List<Usuario> Usuarios { get; set; }
+
         public ListaUsuarios()
         {
             InitializeComponent();
+
+            // Preencha a lista de usuários (exemplo)
+            Usuarios = new List<Usuario>()
+            {
+                new Usuario { Id = 1, Nome = "Usuário 1", Sobrenome = "Sobrenome 1", Email = "usuario1@example.com", Avatar = "user.png" },
+                new Usuario { Id = 2, Nome = "Usuário 2", Sobrenome = "Sobrenome 2", Email = "usuario2@example.com", Avatar = "user.png" },
+                new Usuario { Id = 3, Nome = "Usuário 3", Sobrenome = "Sobrenome 3", Email = "usuario3@example.com", Avatar = "user.png" }
+            };
+
+            UsuariosListView.ItemsSource = Usuarios;
         }
+
+        private void EditarButtonClicked(object sender, EventArgs e)
+        {
+            // Lógica para editar o usuário correspondente ao botão clicado
+            var button = (Button)sender;
+            var id = (int)button.CommandParameter;
+            var usuario = Usuarios.FirstOrDefault(u => u.Id == id);
+
+            if (usuario != null)
+            {
+                // Implemente a lógica de edição do usuário
+                DisplayAlert("Editar", $"Editar usuário com ID {usuario.Id}", "OK");
+            }
+        }
+
+        private void RemoverButtonClicked(object sender, EventArgs e)
+        {
+            // Lógica para remover o usuário correspondente ao botão clicado
+            var button = (Button)sender;
+            var id = (int)button.CommandParameter;
+            var usuario = Usuarios.FirstOrDefault(u => u.Id == id);
+
+            if (usuario != null)
+            {
+                // Implemente a lógica de remoção do usuário
+                Usuarios.Remove(usuario);
+                DisplayAlert("Remover", $"Remover usuário com ID {usuario.Id}", "OK");
+            }
+        }
+    }
+
+    public class Usuario
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public string Email { get; set; }
+        public string Avatar { get; set; }
     }
 }

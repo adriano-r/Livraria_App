@@ -6,19 +6,21 @@ namespace Livraria_App.Model
 {
     public class Livro
     {
+        public int Id { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }
         public string Descricao { get; set; }
         public int Quantidade { get; set; }
+        public string Imagem { get; set; }
 
-        // Adicione outras propriedades conforme necessário, como ISBN, gênero, etc.
-
-        public Livro(string titulo, string autor, string descricao, int quantidade)
+        // Construtor da classe Livro
+        public Livro(string titulo, string autor, string descricao, int quantidade, string imagem)
         {
             Titulo = titulo;
             Autor = autor;
             Descricao = descricao;
             Quantidade = quantidade;
+            Imagem = imagem;
         }
     }
 }
