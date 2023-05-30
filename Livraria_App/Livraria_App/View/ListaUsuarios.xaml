@@ -19,16 +19,17 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding Avatar}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" VerticalOptions="CenterAndExpand" />
+                                    <Image Source="{Binding Avatar, Converter={StaticResource NullToImageConverter}}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" VerticalOptions="CenterAndExpand" />
                                     <StackLayout Grid.Column="1" Margin="10,0,0,0">
                                         <Label Text="{Binding Nome}" FontSize="18" />
                                         <Label Text="{Binding Sobrenome}" FontSize="14" TextColor="Gray" />
                                         <Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
                                     </StackLayout>
-                                    <Button Grid.Column="2" Text="Editar" Clicked="EditarButtonClicked" CommandParameter="{Binding Id}" />
-                                    <Button Grid.Column="2" Text="Remover" Clicked="RemoverButtonClicked" CommandParameter="{Binding Id}" />
+                                    <!--<Button Grid.Column="2" Text="Editar" Clicked="EditarButtonClicked" CommandParameter="{Binding Id}" />-->
+                                    <!--<Button Grid.Column="2" Text="Remover" Clicked="RemoverButtonClicked" CommandParameter="{Binding Id}" />-->
                                 </Grid>
                             </StackLayout>
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

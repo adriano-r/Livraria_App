@@ -26,18 +26,18 @@
                                         <Label Text="{Binding Quantidade, StringFormat='Quantidade: {0}'}" FontSize="14" TextColor="Gray" />
 
                                         <StackLayout Orientation="Horizontal" Spacing="10">
-                                            <Button Text="Editar" Clicked="EditarButtonClicked" CommandParameter="{Binding Id}">
+                                            <Button Text="Reservar" Clicked="EditarButtonClicked" CommandParameter="{Binding Id}">
                                                 <Button.Resources>
                                                     <Style TargetType="Button">
-                                                        <Setter Property="BackgroundColor" Value="#2196F3" />
+                                                        <Setter Property="BackgroundColor" Value="Gray" />
                                                         <Setter Property="TextColor" Value="White" />
                                                         <Setter Property="CornerRadius" Value="5" />
-                                                        <Setter Property="Padding" Value="10,5" />
+                                                        <Setter Property="Padding" Value="5" />
                                                     </Style>
                                                 </Button.Resources>
                                             </Button>
 
-                                            <Button Text="Remover" Clicked="RemoverButtonClicked" CommandParameter="{Binding Id}">
+                                            <!--<Button Text="Remover" Clicked="RemoverButtonClicked" CommandParameter="{Binding Id}">
                                                 <Button.Resources>
                                                     <Style TargetType="Button">
                                                         <Setter Property="BackgroundColor" Value="#F44336" />
@@ -46,7 +46,7 @@
                                                         <Setter Property="Padding" Value="10,5" />
                                                     </Style>
                                                 </Button.Resources>
-                                            </Button>
+                                            </Button>-->
                                         </StackLayout>
                                     </StackLayout>
 

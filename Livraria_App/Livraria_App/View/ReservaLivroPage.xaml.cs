@@ -73,7 +73,7 @@ namespace Livraria_App.View
             var livroId = (int)button.CommandParameter;
 
             // Implemente a lógica para remover o livro do carrinho
-            // Aqui você pode remover o livro da lista de carrinho ou qualquer outro mecanismo de armazenamento
+            // Aqui você pode remover o livro da lista de carrinh+o ou qualquer outro mecanismo de armazenamento
 
             // Exemplo de remoção fictícia do carrinho
             var item = carrinho.FirstOrDefault(i => i.Id == livroId);
