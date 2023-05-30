@@ -1,30 +1,61 @@
-﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Livraria_App.View.ListaLivros"
              Title="Lista de Livros">
     <ContentPage.Content>
-        <ListView x:Name="MyListView"
-          ItemTapped="MyListView_ItemTapped"
-          CachingStrategy="RecycleElement">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Grid>
-                                <Image Source="{Binding Imagem}" Aspect="AspectFill" VerticalOptions="CenterAndExpand" />
-                                
-                                    <Label Text="{Binding Titulo}" FontSize="18" />
-                                    <Label Text="{Binding Autor}" FontSize="14" TextColor="Gray" />
-                                    <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
-                                    <Label Text="{Binding Quantidade, StringFormat='Quantidade: {0}'}" FontSize="14" TextColor="Gray" />
-                                    <Button Text="Ver detalhes" Clicked="VerDetalhesButtonClicked" CommandParameter="{Binding Id}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                                
-                            </Grid>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout>
+            <ListView x:Name="LivrosListView"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="true"
+                      ItemsSource="{Binding Livros}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" HorizontalOptions="FillAndExpand">
+                                <Grid Padding="5,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding Imagem}" HeightRequest="150" WidthRequest="150" Aspect="AspectFit" VerticalOptions="CenterAndExpand" />
+                                    <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                        <Label Text="{Binding Titulo}" FontSize="18" />
+                                        <Label Text="{Binding Autor}" FontSize="14" TextColor="Gray" />
+                                        <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                        <Label Text="{Binding Quantidade, StringFormat='Quantidade: {0}'}" FontSize="14" TextColor="Gray" />
 
+                                        <StackLayout Orientation="Horizontal" Spacing="10">
+                                            <Button Text="Editar" Clicked="EditarButtonClicked" CommandParameter="{Binding Id}">
+                                                <Button.Resources>
+                                                    <Style TargetType="Button">
+                                                        <Setter Property="BackgroundColor" Value="#2196F3" />
+                                                        <Setter Property="TextColor" Value="White" />
+                                                        <Setter Property="CornerRadius" Value="5" />
+                                                        <Setter Property="Padding" Value="10,5" />
+                                                    </Style>
+                                                </Button.Resources>
+                                            </Button>
+
+                                            <Button Text="Remover" Clicked="RemoverButtonClicked" CommandParameter="{Binding Id}">
+                                                <Button.Resources>
+                                                    <Style TargetType="Button">
+                                                        <Setter Property="BackgroundColor" Value="#F44336" />
+                                                        <Setter Property="TextColor" Value="White" />
+                                                        <Setter Property="CornerRadius" Value="5" />
+                                                        <Setter Property="Padding" Value="10,5" />
+                                                    </Style>
+                                                </Button.Resources>
+                                            </Button>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
