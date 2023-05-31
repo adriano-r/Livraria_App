@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Livraria_App.View.Submenu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,14 +31,15 @@ namespace Livraria_App.View
 
         private void EditarButtonClicked(object sender, EventArgs e)
         {
-            var button = (Button)sender;
-            var id = (int)button.CommandParameter;
-            var livro = Livros.FirstOrDefault(l => l.Id == id);
+            Navigation.PushAsync(new CriarLivroPage());
+            //var button = (Button)sender;
+            //var id = (int)button.CommandParameter;
+            //var livro = Livros.FirstOrDefault(l => l.Id == id);
 
-            if (livro != null)
-            {
-                DisplayAlert("Editar", $"Editar livro com ID {livro.Id}", "OK");
-            }
+            //if (livro != null)
+            //{
+            //    DisplayAlert("Editar", $"Editar livro com ID {livro.Id}", "OK");
+            //}
         }
 
         private void RemoverButtonClicked(object sender, EventArgs e)

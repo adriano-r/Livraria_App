@@ -10,16 +10,16 @@ namespace Livraria_App.API
 {
     internal class ApiService
     {
-        public const string URL = "https://reqres.in/";
+        public const string URL = "http://localhost:3000/";
 
-        public static async Task<List<User>> ObterUser()
+        public static async Task<List<Usuario>> ObterUser()
         {
             try
             {
                 HttpClient client = new HttpClient();
-                string url = URL + "api/users";
+                string url = URL + "usuario";
                 string response = await client.GetStringAsync(url);
-                List<User> usuario = JsonConvert.DeserializeObject<List<User>>(response);
+                List<Usuario> usuario = JsonConvert.DeserializeObject<List<Usuario>>(response);
                 return usuario;
             }
             catch (Exception ex)

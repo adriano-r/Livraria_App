@@ -17,11 +17,11 @@ namespace Livraria_App.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        List<User> listaUsuarios;
+        List<Usuario> listaUsuarios;
         public LoginPage()
         {
             InitializeComponent();
-            listaUsuarios = new List<User>();
+            listaUsuarios = new List<Usuario>();
         }
 
         public void Logar()

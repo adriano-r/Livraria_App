@@ -29,15 +29,16 @@ namespace Livraria_App.View
             try
             {
                 var httpClient = new HttpClient();
-                var response = await httpClient.GetAsync("https://raw.githubusercontent.com/adriano-r/repo/main/db.json");
+                var response = await httpClient.GetAsync("https://adriano-r.github.io/repo/db.json");
 
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    var data = JsonConvert.DeserializeObject<Dictionary<string, List<Usuario>>>(json);
-                    Usuarios = data["usuario"];
 
-                    UsuariosListView.ItemsSource = Usuarios;
+                    var data = JsonConvert.DeserializeObject<Dictionary<string, List<Usuario>>>(json);
+                    var usuarios = data["usuario"];
+
+                    UsuariosListView.ItemsSource = usuarios;
                 }
                 else
                 {
