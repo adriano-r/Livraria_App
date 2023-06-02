@@ -75,7 +75,7 @@ namespace Livraria_App.View
             int quantidade = Convert.ToInt32(quantidadeEntry.Text);
             string imagem = imagemEntry.Text;
 
-            Livro novoLivro = new Livro(titulo, autor, descricao, quantidade, imagem);
+            //Livro novoLivro = new Livro(titulo, autor, descricao, quantidade, imagem);
 
             // Aqui você pode fazer o que quiser com o novo livro (por exemplo, salvá-lo em uma lista)
 

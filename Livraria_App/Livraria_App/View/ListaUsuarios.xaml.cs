@@ -29,15 +29,18 @@ namespace Livraria_App.View
             try
             {
                 var httpClient = new HttpClient();
-                var response = await httpClient.GetAsync("https://adriano-r.github.io/repo/db.json");
+                var response = await httpClient.GetAsync("https://repo-pi-gold.vercel.app/api/usuarios");
 
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
 
-                    var data = JsonConvert.DeserializeObject<Dictionary<string, List<Usuario>>>(json);
-                    var usuarios = data["usuario"];
+                    var usuarios = JsonConvert.DeserializeObject<List<Usuario>>(json);
 
+                    foreach (var usuario in usuarios)
+                    {
+                        Console.WriteLine($"ID: {usuario.Id}, Nome: {usuario.Nome}, Sobrenome: {usuario.Sobrenome}, Email: {usuario.Email}, Avatar: {usuario.Avatar}");
+                    }
                     UsuariosListView.ItemsSource = usuarios;
                 }
                 else
