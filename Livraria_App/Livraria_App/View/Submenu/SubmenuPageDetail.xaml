@@ -5,12 +5,12 @@
              Title="Biblioteca">
 
     <StackLayout Padding="20" Spacing="10">
-        <!--<Image Source="{Binding Imagem}" Aspect="AspectFill" HeightRequest="300"></Image>
+        <Image Source="{Binding Imagem}" Aspect="AspectFill" HeightRequest="300"></Image>
         <Label Text="{Binding Titulo}" FontSize="24" FontAttributes="Bold"></Label>
         <Label Text="{Binding Autor}" FontSize="18"></Label>
         <Label Text="{Binding Descricao}" FontSize="16"></Label>
         <Label Text="{Binding Quantidade}" FontSize="16"></Label>
-        <Button Text="Reservar" Clicked="ReserveButton_Clicked"></Button>-->
+        <Button Text="Reservar" Clicked="ReserveButton_Clicked"></Button>
         <Image Source="Book_Xamarin.png" Aspect="AspectFill" HeightRequest="300"></Image>
         <Label Text="Livro de Xamarin" FontSize="24" FontAttributes="Bold"></Label>
         <Label Text="Macrohard" FontSize="18"></Label>

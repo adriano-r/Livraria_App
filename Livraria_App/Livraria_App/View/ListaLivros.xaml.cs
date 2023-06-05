@@ -1,4 +1,5 @@
-﻿using Livraria_App.View.Submenu;
+﻿using Livraria_App.Model;
+using Livraria_App.View.Submenu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,9 @@ namespace Livraria_App.View
 
             Livros = new List<Livro>()
             {
-                new Livro { Id = 1, Titulo = "Livro 1", Autor = "Autor 1", Descricao = "Descrição 1", Quantidade = 5, Imagem = "Book_Xamarin.png" },
-                new Livro { Id = 2, Titulo = "Livro 2", Autor = "Autor 2", Descricao = "Descrição 2", Quantidade = 3, Imagem = "Book_Xamarin.png" },
-                new Livro { Id = 3, Titulo = "Livro 3", Autor = "Autor 3", Descricao = "Descrição 3", Quantidade = 7, Imagem = "Book_Xamarin.png" }
+                new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", "Uma jornada épica na Terra Média", 3, "Book_Xamarin.png"),
+                new Livro("Cem Anos de Solidão", "Gabriel García Márquez", "A história da família Buendía ao longo de várias gerações", 2, "Book_Xamarin.png"),
+                new Livro("1984", "George Orwell", "Um clássico distópico que retrata um futuro totalitário", 4, "Book_Xamarin.png")
             };
 
             LivrosListView.ItemsSource = Livros;
@@ -31,15 +32,15 @@ namespace Livraria_App.View
 
         private void EditarButtonClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CriarLivroPage());
-            //var button = (Button)sender;
-            //var id = (int)button.CommandParameter;
-            //var livro = Livros.FirstOrDefault(l => l.Id == id);
+            
+            var button = (Button)sender;
+            var id = (int)button.CommandParameter;
+            var livro = Livros.FirstOrDefault(l => l.Id == id);
 
-            //if (livro != null)
-            //{
-            //    DisplayAlert("Editar", $"Editar livro com ID {livro.Id}", "OK");
-            //}
+            if (livro != null)
+            {
+                DisplayAlert("Editar", $"Editar livro com ID {livro.Id}", "OK");
+            }
         }
 
         private void RemoverButtonClicked(object sender, EventArgs e)
@@ -56,13 +57,4 @@ namespace Livraria_App.View
         }
     }
 
-    public class Livro
-    {
-        public int Id { get; set; }
-        public string Titulo { get; set; }
-        public string Autor { get; set; }
-        public string Descricao { get; set; }
-        public int Quantidade { get; set; }
-        public string Imagem { get; set; }
-    }
 }

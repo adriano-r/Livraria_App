@@ -13,7 +13,6 @@ namespace Livraria_App.Model
         public int Quantidade { get; set; }
         public string Imagem { get; set; }
 
-        // Construtor da classe Livro
         public Livro(string titulo, string autor, string descricao, int quantidade, string imagem)
         {
             Titulo = titulo;
