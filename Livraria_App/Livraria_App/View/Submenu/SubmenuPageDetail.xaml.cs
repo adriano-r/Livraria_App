@@ -18,10 +18,10 @@ namespace Livraria_App.View.Submenu
             InitializeComponent();
         }
 
-        private void ReserveButton_Clicked(object sender, EventArgs e)
+        private void VerMaisButton_Clicked(object sender, EventArgs e)
         {
-            Livro livro = new Livro("Harry Potter", "J.K. Rowling", "Uma emocionante história de bruxos e magia", 5, "https://m.media-amazon.com/images/I/61jgm6ooXzL._AC_UF1000,1000_QL80_.jpg");
-            DisplayAlert("Reserva", $"Livro '{livro.Titulo}' reservado com sucesso!", "OK");
+            Navigation.PushAsync(new ListaLivros());
+            
         }
     }
 }

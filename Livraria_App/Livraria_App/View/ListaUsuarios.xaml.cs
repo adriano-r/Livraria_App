@@ -24,61 +24,48 @@ namespace Livraria_App.View
             LoadUsuarios();
         }
 
-        private async void LoadUsuarios()
+        private void LoadUsuarios()
         {
-            try
-            {
-                var httpClient = new HttpClient();
-                var response = await httpClient.GetAsync("https://repo-pi-gold.vercel.app/api/usuarios");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = await response.Content.ReadAsStringAsync();
-
-                    var usuarios = JsonConvert.DeserializeObject<List<Usuario>>(json);
-
-                    foreach (var usuario in usuarios)
-                    {
-                        Console.WriteLine($"ID: {usuario.Id}, Nome: {usuario.Nome}, Sobrenome: {usuario.Sobrenome}, Email: {usuario.Email}, Avatar: {usuario.Avatar}");
-                    }
-                    UsuariosListView.ItemsSource = usuarios;
-                }
-                else
-                {
-                    // Handle unsuccessful response
-                    await DisplayAlert("Error", "Failed to retrieve users", "OK");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle exception
-                await DisplayAlert("Error", $"Failed to load users: {ex.Message}", "OK");
-            }
-        }
-
-        private void EditarButtonClicked(object sender, EventArgs e)
+            var usuarios = new List<Usuario>
         {
-            var button = (Button)sender;
-            var id = (int)button.CommandParameter;
-            var usuario = Usuarios.FirstOrDefault(u => u.Id == id);
+            new Usuario { Id = 0, Nome = "Don", Sobrenome = "Vito Corleone", Email = "coleone@gm.com", Avatar = "https://fms.wustl.edu/files/fms/Events/godfather.png" },
+            new Usuario { Id = 1, Nome = "Al", Sobrenome = "Capone", Email = "al@gm.com", Avatar = "" },
+            new Usuario { Id = 2, Nome = "Hyman", Sobrenome = "Roth", Email = "rh@gm.com", Avatar = "" }
+        };
 
-            if (usuario != null)
+            foreach (var usuario in usuarios)
             {
-                DisplayAlert("Editar", $"Editar usuário com ID {usuario.Id}", "OK");
+                Console.WriteLine($"ID: {usuario.Id}, Nome: {usuario.Nome}, Sobrenome: {usuario.Sobrenome}, Email: {usuario.Email}, Avatar: {usuario.Avatar}");
             }
-        }
 
-        private void RemoverButtonClicked(object sender, EventArgs e)
-        {
-            var button = (Button)sender;
-            var id = (int)button.CommandParameter;
-            var usuario = Usuarios.FirstOrDefault(u => u.Id == id);
-
-            if (usuario != null)
-            {
-                Usuarios.Remove(usuario);
-                DisplayAlert("Remover", $"Remover usuário com ID {usuario.Id}", "OK");
-            }
+            UsuariosListView.ItemsSource = usuarios;
         }
     }
+
+
+    //private void EditarButtonClicked(object sender, EventArgs e)
+    //    {
+    //        var button = (Button)sender;
+    //        var id = (int)button.CommandParameter;
+    //        var usuario = Usuarios.FirstOrDefault(u => u.Id == id);
+
+    //        if (usuario != null)
+    //        {
+    //            DisplayAlert("Editar", $"Editar usuário com ID {usuario.Id}", "OK");
+    //        }
+    //    }
+
+    //    private void RemoverButtonClicked(object sender, EventArgs e)
+    //    {
+    //        var button = (Button)sender;
+    //        var id = (int)button.CommandParameter;
+    //        var usuario = Usuarios.FirstOrDefault(u => u.Id == id);
+
+    //        if (usuario != null)
+    //        {
+    //            Usuarios.Remove(usuario);
+    //            DisplayAlert("Remover", $"Remover usuário com ID {usuario.Id}", "OK");
+    //        }
+    //    }
+    
 }

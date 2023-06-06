@@ -16,14 +16,15 @@
             <Button Text="Reservar" Clicked="ReservarButtonClicked" Margin="0,20,0,0" />
 
             <ListView x:Name="CarrinhoListView"
-                      SeparatorVisibility="None"
-                      HasUnevenRows="true">
+                  SeparatorVisibility="None"
+                  HasUnevenRows="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Nome}" FontSize="18" />
-                                <Label Text="{Binding Quantidade, StringFormat='Quantidade: {0}'}" FontSize="14" TextColor="Gray" />
+                                <Label Text="{Binding Titulo}" FontSize="18" />
+                                <Label Text="{Binding Autor}" FontSize="14" TextColor="Gray" />
+                                <Label Text="{Binding StatusReserva}" FontSize="14" TextColor="Gray" />
                                 <Button Text="Remover" Clicked="RemoverButtonClicked" CommandParameter="{Binding Id}" HorizontalOptions="EndAndExpand" />
                             </StackLayout>
                         </ViewCell>
@@ -32,4 +33,5 @@
             </ListView>
         </StackLayout>
     </ContentPage.Content>
+
 </ContentPage>

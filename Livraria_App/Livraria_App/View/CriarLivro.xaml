@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Livraria_App.View.CriarLivro">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Criar Livro" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,20" />
+
+            <Label Text="Título:" FontSize="18" />
+            <Entry x:Name="TituloEntry" Placeholder="Digite o título do livro" />
+
+            <Label Text="Autor:" FontSize="18" />
+            <Entry x:Name="AutorEntry" Placeholder="Digite o nome do autor" />
+
+            <Label Text="Descrição:" FontSize="18" />
+            <Editor x:Name="DescricaoEditor" Placeholder="Digite a descrição do livro" />
+
+            <Label Text="Quantidade:" FontSize="18" />
+            <Entry x:Name="QuantidadeEntry" Keyboard="Numeric" Placeholder="Digite a quantidade disponível" />
+
+            <StackLayout Margin="0,20,0,0">
+                <Label Text="Imagem:" FontSize="18" />
+                <Button Text="Selecionar imagem" Clicked="Button_Clicked_1" />
+                <Image x:Name="ImagemLivro" HeightRequest="200" Margin="0,10,0,0" />
+            </StackLayout>
+
+            <Button Text="Criar" Clicked="Button_Clicked_2" Margin="0,20,0,0" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

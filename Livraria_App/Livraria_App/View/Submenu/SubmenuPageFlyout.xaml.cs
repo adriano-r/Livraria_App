@@ -34,10 +34,15 @@ namespace Livraria_App.View.Submenu
                 MenuItems = new ObservableCollection<SubmenuPageFlyoutMenuItem>(new[]
                 {
                     new SubmenuPageFlyoutMenuItem { Id = 0, Icon = "home.png" ,Title = "Home", TargetType=typeof(SubmenuPageDetail) },
-                    new SubmenuPageFlyoutMenuItem { Id = 1, Icon = "livro.png", Title = "Categorias", TargetType = typeof(HomePage) },
+                    new SubmenuPageFlyoutMenuItem { Id = 1, Icon = "categoria.png", Title = "Categorias", TargetType = typeof(HomePage) },
                     new SubmenuPageFlyoutMenuItem { Id = 2, Icon = "livro.png", Title = "Livros" , TargetType = typeof(ListaLivros)},
-                    new SubmenuPageFlyoutMenuItem { Id = 3, Icon = "user.png",Title = "Usuarios" , TargetType = typeof(ListaUsuarios)},
+                    new SubmenuPageFlyoutMenuItem { Id = 3, Icon = "user.png", Title = "Usuarios" , TargetType = typeof(ListaUsuarios)},
                     new SubmenuPageFlyoutMenuItem { Id = 4, Icon = "carrinho.png", Title = "Reservados" , TargetType = typeof(ReservaLivroPage)},
+                    new SubmenuPageFlyoutMenuItem { Id = 5, Icon = "carrinho.png", Title = "Criar Livro" , TargetType = typeof(CriarLivro)},
+                    new SubmenuPageFlyoutMenuItem { Id = 6, Icon = "",Title = "Logout" , TargetType = typeof(ListaUsuarios)},
+                    new SubmenuPageFlyoutMenuItem { Id = 7, Icon = "",Title = "Login" , TargetType = typeof(LoginPage)},
+                    new SubmenuPageFlyoutMenuItem { Id = 8, Icon = "",Title = "Registrar" , TargetType = typeof(RegisterPage)},
+
                 });
             }
 
@@ -51,6 +56,16 @@ namespace Livraria_App.View.Submenu
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
             #endregion
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
