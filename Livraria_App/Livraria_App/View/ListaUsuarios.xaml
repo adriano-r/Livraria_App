@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Livraria_App.View.ListaUsuarios"
-             Title="Lista de Usuários">
+             Title="Lista de Usuários"
+             xmlns:vm="clr-namespace:Livraria_App.ViewModel">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="UsuariosListView"
@@ -25,11 +26,10 @@
                                         <Label Text="{Binding Sobrenome}" FontSize="14" TextColor="Gray" />
                                         <Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
                                     </StackLayout>
-                                    <!--<Button Grid.Column="2" Text="Editar" Clicked="EditarButtonClicked" CommandParameter="{Binding Id}" />-->
-                                    <!--<Button Grid.Column="2" Text="Remover" Clicked="RemoverButtonClicked" CommandParameter="{Binding Id}" />-->
+                                    <Button Grid.Column="2" Text="Editar" Command="{Binding BindingContext.EditarUsuarioCommand, Source={x:Reference Name=UsuariosListView}}" CommandParameter="{Binding .}" />
+                                    <Button Grid.Column="2" HorizontalOptions="End" Text="Remover" Command="{Binding BindingContext.RemoverUsuarioCommand, Source={x:Reference Name=UsuariosListView}}" CommandParameter="{Binding .}" />
                                 </Grid>
                             </StackLayout>
-
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

@@ -30,7 +30,7 @@ namespace Livraria_App.View
             //listaUsuarios = await ApiService.ObterUser();
 
             //var usuario = listaUsuarios.Where(x => x.Nome.ToLower() == txtNome.Text.ToLower() && x.Senha.ToLower() == txtSenha.Text.ToLower()).ToList();
-            if (txtEmail.Text == "admin" && txtSenha.Text == "123456")
+            if (txtEmail.Text == "adriano" && txtSenha.Text == "123456")
             {
 
                 Navigation.PushAsync(new SubmenuPage());

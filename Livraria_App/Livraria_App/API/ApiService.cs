@@ -17,7 +17,7 @@ namespace Livraria_App.API
             try
             {
                 HttpClient client = new HttpClient();
-                string url = URL + "usuario";
+                string url = URL + "usuarios";
                 string response = await client.GetStringAsync(url);
                 List<Usuario> usuario = JsonConvert.DeserializeObject<List<Usuario>>(response);
                 return usuario;

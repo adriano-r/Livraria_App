@@ -30,7 +30,16 @@ namespace Livraria_App.View
                 new Livro("1984", "George Orwell", "Um clássico distópico que retrata um futuro totalitário", 4, "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg"),
                                 new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", "Uma jornada épica na Terra Média", 3, "https://5934488p.ha.azioncdn.net/capas-livros/9788533613409-j-r-r-tolkien-o-senhor-dos-aneis-1095107875.jpg"),
                 new Livro("Cem Anos de Solidão", "Gabriel García Márquez", "A história da família Buendía ao longo de várias gerações", 2, "https://m.media-amazon.com/images/I/61jgm6ooXzL.jpg"),
-                new Livro("1984", "George Orwell", "Um clássico distópico que retrata um futuro totalitário", 4, "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg")
+                new Livro("1984", "George Orwell", "Um clássico distópico que retrata um futuro totalitário", 4, "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg"),
+                                new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", "Uma jornada épica na Terra Média", 3, "https://5934488p.ha.azioncdn.net/capas-livros/9788533613409-j-r-r-tolkien-o-senhor-dos-aneis-1095107875.jpg"),
+                new Livro("Cem Anos de Solidão", "Gabriel García Márquez", "A história da família Buendía ao longo de várias gerações", 2, "https://m.media-amazon.com/images/I/61jgm6ooXzL.jpg"),
+                new Livro("1984", "George Orwell", "Um clássico distópico que retrata um futuro totalitário", 4, "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg"),
+                                new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", "Uma jornada épica na Terra Média", 3, "https://5934488p.ha.azioncdn.net/capas-livros/9788533613409-j-r-r-tolkien-o-senhor-dos-aneis-1095107875.jpg"),
+                new Livro("Cem Anos de Solidão", "Gabriel García Márquez", "A história da família Buendía ao longo de várias gerações", 2, "https://m.media-amazon.com/images/I/61jgm6ooXzL.jpg"),
+                new Livro("1984", "George Orwell", "Um clássico distópico que retrata um futuro totalitário", 4, "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg"),
+                                new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", "Uma jornada épica na Terra Média", 3, "https://5934488p.ha.azioncdn.net/capas-livros/9788533613409-j-r-r-tolkien-o-senhor-dos-aneis-1095107875.jpg"),
+                new Livro("Cem Anos de Solidão", "Gabriel García Márquez", "A história da família Buendía ao longo de várias gerações", 2, "https://m.media-amazon.com/images/I/61jgm6ooXzL.jpg"),
+                new Livro("teste", "teste", "test", 4, "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg")
             };
 
             LivrosListView.ItemsSource = Livros;
