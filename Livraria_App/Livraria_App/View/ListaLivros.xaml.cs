@@ -49,12 +49,12 @@ namespace Livraria_App.View
         {
             var button = (Button)sender;
             var id = (int)button.CommandParameter;
-            var livro = Livros.FirstOrDefault(l => l.Id == id);
+            var livro = Livros.FirstOrDefault(l => l.id == id);
 
             if (livro != null)
             {
                 string message = $"Livro reservado:\n\n" +
-                                 $"ID: {livro.Id}\n" +
+                                 $"ID: {livro.id}\n" +
                                  $"Título: {livro.Titulo}\n" +
                                  $"Autor: {livro.Autor}\n" +
                                  $"Descrição: {livro.Descricao}\n" +
@@ -69,12 +69,12 @@ namespace Livraria_App.View
         {
             var button = (Button)sender;
             var id = (int)button.CommandParameter;
-            var livro = Livros.FirstOrDefault(l => l.Id == id);
+            var livro = Livros.FirstOrDefault(l => l.id == id);
 
             if (livro != null)
             {
                 Livros.Remove(livro);
-                DisplayAlert("Remover", $"Remover livro com ID {livro.Id}", "OK");
+                DisplayAlert("Remover", $"Remover livro com ID {livro.id}", "OK");
             }
         }
     }

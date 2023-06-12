@@ -31,6 +31,7 @@
                         <Image Source="user.png" Aspect="AspectFill" HeightRequest="80" HorizontalOptions="StartAndExpand" />
                         <Label Text="Adriano" Style="{DynamicResource SubtitleStyle}" FontSize="24" TextColor="Black" HorizontalOptions="StartAndExpand"/>
                         <Label Text="adriano@gmail.com" FontSize="18" TextColor="Black" HorizontalOptions="StartAndExpand"/>
+                        <Button Text="Logout" x:Name="Logout" Clicked="Logout_Clicked" />
                     </StackLayout>
                     <Button 
                         Text="Logout"

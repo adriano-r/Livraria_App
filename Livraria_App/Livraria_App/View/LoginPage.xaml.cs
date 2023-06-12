@@ -32,7 +32,7 @@ namespace Livraria_App.View
             //var usuario = listaUsuarios.Where(x => x.Nome.ToLower() == txtNome.Text.ToLower() && x.Senha.ToLower() == txtSenha.Text.ToLower()).ToList();
             if (txtEmail.Text == "adriano" && txtSenha.Text == "123456")
             {
-
+                SessionManager.Instance.IsUserLoggedIn = true;
                 Navigation.PushAsync(new SubmenuPage());
             }
             else

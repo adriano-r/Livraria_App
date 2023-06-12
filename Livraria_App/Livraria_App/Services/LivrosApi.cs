@@ -63,7 +63,7 @@ namespace Livraria_App.Services
 
         public async Task UpDateLivro(Livro livro)
         {
-            String dados = URL + "/" + livro.Id;
+            String dados = URL + "/" + livro.id;
             string json = JsonConvert.SerializeObject(livro);
             HttpClient client = GetClient();
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");

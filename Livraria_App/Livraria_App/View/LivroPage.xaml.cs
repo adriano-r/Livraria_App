@@ -27,7 +27,7 @@ namespace Livraria_App.View
             try
             {
                 livro = await api.GetLivro(Convert.ToInt32(entId.Text));
-                if (livro.Id > 0)
+                if (livro.id > 0)
                 {
                     entTitulo.Text = livro.Titulo;
                     entAutor.Text = livro.Autor;
@@ -49,7 +49,7 @@ namespace Livraria_App.View
             try
             {
                 livro = await api.GetLivro(Convert.ToInt32(entId.Text));
-                if (livro.Id > 0)
+                if (livro.id > 0)
                 {
                     await api.DeleteLivro(Convert.ToInt32(entId.Text));
                 }
@@ -75,7 +75,7 @@ namespace Livraria_App.View
 
                 if(btSalvar.Text == "Atualizar")
                 {
-                    livro.Id = Convert.ToInt32(entId.Text);
+                    livro.id = Convert.ToInt32(entId.Text);
                     await api.UpDateLivro(livro);
                     await DisplayAlert("Alerta", "Livro Atualizado com sucesso!", "Ok");
                 }

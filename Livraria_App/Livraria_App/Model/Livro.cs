@@ -8,14 +8,14 @@ namespace Livraria_App.Model
     {
         public Livro()
         {
-            this.Id = 0;
+            this.id = 0;
             this.Titulo = "";
             this.Autor = "";
             this.Descricao = "";
             this.Quantidade = 0;
             this.Imagem = "";
         }
-        public int Id { get; set; }
+        public int id { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }
         public string Descricao { get; set; }

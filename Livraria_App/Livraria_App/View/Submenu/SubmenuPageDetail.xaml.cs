@@ -15,7 +15,16 @@ namespace Livraria_App.View.Submenu
     {
         public SubmenuPageDetail()
         {
-            InitializeComponent();
+            if (SessionManager.Instance.IsUserLoggedIn)
+            {
+                InitializeComponent();
+            }
+            else
+            {
+                DisplayAlert("Acesso Negado!", "Usuario não logado", "ok");
+                Navigation.PushAsync(new LoginPage());
+            }
+
         }
 
         private void VerMaisButton_Clicked(object sender, EventArgs e)
