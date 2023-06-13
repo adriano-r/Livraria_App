@@ -9,7 +9,7 @@ namespace Livraria_App.Model
         public int Id { get; set; }
         public int UsuarioId { get; set; }
         public int LivroId { get; set; }
-        public DateTime DataReserva { get; set; }
+        public DateTime? DataReserva { get; set; }
         public string Status { get; set; }
     }
 }

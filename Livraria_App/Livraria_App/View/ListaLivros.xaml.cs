@@ -1,41 +1,52 @@
 ﻿using Livraria_App.Model;
 using Livraria_App.Services;
-using Livraria_App.View.Submenu;
+using Livraria_App.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static Android.Telephony.CarrierConfigManager;
 
 namespace Livraria_App.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaLivros : ContentPage
     {
-        private UsuariosApi api;
+        private Livro livro;
+        private LivrosApi api;
+        private List<Livro> livros;
 
-        public List<Livro> Livros { get; set; }
-
-        public  ListaLivros()
+        public ListaLivros()
         {
             InitializeComponent();
-        
-            api = new UsuariosApi();
-            Livros = new List<Livro>();
-            {
-                new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", "Uma jornada épica na Terra Média", 3, "");
-            };
 
-            LivrosListView.ItemsSource = Livros;
+            BindingContext = new LivrosViewModel();
+            api = new LivrosApi();
+            livros = new List<Livro>();
+
+            LoadLivros();
+        }
+
+        private async void LoadLivros()
+        {
+            try
+            {
+                livros = await api.GetLivros();
+                LivrosListView.ItemsSource = livros;
+            }
+            catch (Exception erro)
+            {
+                await DisplayAlert("Erro", erro.Message, "Ok");
+            }
+        }
+
+        private void CriarLivro_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LivroPage());
         }
 
         private void Reservar_Clicked(object sender, EventArgs e)
         {
-
+            
         }
     }
 

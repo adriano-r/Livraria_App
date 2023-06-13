@@ -1,39 +1,42 @@
-﻿using Livraria_App.Model;
+﻿using Java.Util;
+using Livraria_App.Model;
 using Livraria_App.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace Livraria_App.ViewModel
 {
-    public class UsuariosViewModel : INotifyPropertyChanged
+    public class LivrosViewModel : INotifyPropertyChanged
     {
-        private List<Usuario> _usuarios;
-        public List<Usuario> Usuarios
+        private List<Livro> _livros;
+
+        public List<Livro> Livros
         {
-            get { return _usuarios; }
+            get { return _livros; }
             set
             {
-                _usuarios = value;
+                _livros = value;
                 OnPropertyChanged();
             }
         }
 
-        public UsuariosViewModel()
+        public LivrosViewModel()
         {
-            LoadUsuarios();
+            LoadLivros();
         }
 
-        private async void LoadUsuarios()
+        private async void LoadLivros()
         {
             try
             {
-                UsuariosApi api = new UsuariosApi();
-                Usuarios = await api.GetUsuarios();
-                //Console.WriteLine(Usuarios);
+                LivrosApi api = new LivrosApi();
+                Livros = await api.GetLivros();
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
                 Console.WriteLine("Erro na requisição: " + ex.Message);
             }
@@ -42,7 +45,8 @@ namespace Livraria_App.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));  
         }
+
     }
 }

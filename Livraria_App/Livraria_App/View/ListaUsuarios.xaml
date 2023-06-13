@@ -19,7 +19,7 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding Avatar}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" VerticalOptions="CenterAndExpand" />
+                                    <Image Source="{Binding Avatar}" HeightRequest="130" WidthRequest="130" Aspect="AspectFill" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
                                     <StackLayout Grid.Column="1" Margin="10,0,0,0">
                                         <Label Text="{Binding Nome}" FontSize="18" />
                                         <Label Text="{Binding Sobrenome}" FontSize="14" TextColor="Gray" />

@@ -5,10 +5,10 @@
              Title="Lista de Livros">
     <ContentPage.Content>
         <StackLayout>
+            <Button Text="Criar Livro" x:Name="CriarLivro" Clicked="CriarLivro_Clicked" />
             <ListView x:Name="LivrosListView"
                       SeparatorVisibility="None"
-                      HasUnevenRows="true"
-                      ItemsSource="{Binding Livros}">
+                      HasUnevenRows="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -18,7 +18,7 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding Imagem}" HeightRequest="150" WidthRequest="150" Aspect="AspectFit" VerticalOptions="CenterAndExpand" />
+                                    <Image Source="{Binding Imagem}" HeightRequest="130" WidthRequest="130" Aspect="AspectFit" VerticalOptions="CenterAndExpand" />
                                     <StackLayout Grid.Column="1" Margin="10,0,0,0">
                                         <Label Text="{Binding Titulo}" FontSize="18" />
                                         <Label Text="{Binding Autor}" FontSize="14" TextColor="Gray" />
