@@ -1,5 +1,4 @@
 ﻿using Android.Content.Res;
-using Livraria_App.API;
 using Livraria_App.Model;
 using Livraria_App.View.Submenu;
 using Plugin.Connectivity;

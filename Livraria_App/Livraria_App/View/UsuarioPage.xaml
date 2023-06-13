@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Livraria_App.View.LivroPage">
+             x:Class="Livraria_App.View.UsuarioPage">
 
     <StackLayout Padding="10">
         <Frame BackgroundColor="OrangeRed" Padding="24" CornerRadius="0">
-            <Label Text="Livros" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <Label Text="Usuarios" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
+
 
         <StackLayout Orientation="Horizontal">
             <Entry x:Name="entId" Keyboard="Numeric" Placeholder="Id"/>
@@ -14,11 +15,10 @@
             <Button x:Name="btExcluir" Text="Excluir" Clicked="btExcluir_Clicked" />
         </StackLayout>
 
-        <Entry Placeholder="Titulo" x:Name="entTitulo" Keyboard="Text" />
-        <Entry Placeholder="Autor" x:Name="entAutor" Keyboard="Text"/>
-        <Entry Placeholder="Descrição" x:Name="entDesc" Keyboard="Default"/>
-        <Entry Placeholder="Disponiveis" x:Name="entDisp" Keyboard="Numeric" />
-        <Entry Placeholder="Imagem URL" x:Name="entImg" Keyboard="Url" />
+        <Entry Placeholder="Nome" x:Name="entNome" Keyboard="Text" />
+        <Entry Placeholder="Sobrenome" x:Name="entSobre" Keyboard="Text"/>
+        <Entry Placeholder="Email" x:Name="entEmail" Keyboard="Email"/>
+        <Entry Placeholder="Avatar URL" x:Name="entAvt" Keyboard="Url" />
         <Button Text="Cadastrar" x:Name="btSalvar" Clicked="btSalvar_Clicked" />
 
     </StackLayout>

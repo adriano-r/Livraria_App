@@ -11,7 +11,7 @@ namespace Livraria_App.Services
 {
     public class LivrosApi
     {
-        const String URL = "https://repo-pi-gold.vercel.app/livros";
+        public const string URL = "https://repo-pi-gold.vercel.app/livros";
 
         private HttpClient GetClient() 
         { 

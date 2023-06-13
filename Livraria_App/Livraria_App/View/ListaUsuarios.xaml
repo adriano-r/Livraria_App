@@ -2,14 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Livraria_App.View.ListaUsuarios"
-             Title="Lista de Usuários"
-             xmlns:vm="clr-namespace:Livraria_App.ViewModel">
+             Title="Lista de Usuários">
     <ContentPage.Content>
         <StackLayout>
+            <Button Text="Criar Usuario" x:Name="CriarUsuario" Clicked="CriarUsuario_Clicked" />
             <ListView x:Name="UsuariosListView"
                       SeparatorVisibility="None"
-                      HasUnevenRows="true"
-                      ItemsSource="{Binding Usuarios}">
+                      HasUnevenRows="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -20,14 +19,16 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding Avatar, Converter={StaticResource NullToImageConverter}}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" VerticalOptions="CenterAndExpand" />
+                                    <Image Source="{Binding Avatar}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" VerticalOptions="CenterAndExpand" />
                                     <StackLayout Grid.Column="1" Margin="10,0,0,0">
                                         <Label Text="{Binding Nome}" FontSize="18" />
                                         <Label Text="{Binding Sobrenome}" FontSize="14" TextColor="Gray" />
                                         <Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
                                     </StackLayout>
-                                    <Button Grid.Column="2" Text="Editar" Command="{Binding BindingContext.EditarUsuarioCommand, Source={x:Reference Name=UsuariosListView}}" CommandParameter="{Binding .}" />
-                                    <Button Grid.Column="2" HorizontalOptions="End" Text="Remover" Command="{Binding BindingContext.RemoverUsuarioCommand, Source={x:Reference Name=UsuariosListView}}" CommandParameter="{Binding .}" />
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="End" Grid.Column="3">
+                                        <Button Text="Remover" />
+                                        <Button Text="Editar"  />
+                                    </StackLayout>
                                 </Grid>
                             </StackLayout>
                         </ViewCell>
