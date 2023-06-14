@@ -35,10 +35,9 @@ namespace Livraria_App.View.Submenu
                 {
 
                     new SubmenuPageFlyoutMenuItem { Id = 0, Icon = "home.png" ,Title = "Home", TargetType=typeof(SubmenuPageDetail) },
-                    new SubmenuPageFlyoutMenuItem { Id = 1, Icon = "categoria.png", Title = "Categorias", TargetType = typeof(HomePage) },
-                    new SubmenuPageFlyoutMenuItem { Id = 2, Icon = "livro.png", Title = "Livros" , TargetType = typeof(ListaLivros)},
-                    new SubmenuPageFlyoutMenuItem { Id = 3, Icon = "user.png", Title = "Usuarios" , TargetType = typeof(ListaUsuarios)},
-                    new SubmenuPageFlyoutMenuItem { Id = 4, Icon = "carrinho.png", Title = "Reservados" , TargetType = typeof(ReservaLivroPage)},
+                    new SubmenuPageFlyoutMenuItem { Id = 1, Icon = "livro.png", Title = "Livros" , TargetType = typeof(ListaLivros)},
+                    new SubmenuPageFlyoutMenuItem { Id = 2, Icon = "user.png", Title = "Usuarios" , TargetType = typeof(ListaUsuarios)},
+                    new SubmenuPageFlyoutMenuItem { Id = 3, Icon = "carrinho.png", Title = "Reservados" , TargetType = typeof(ReservaLivroPage)},
 
                 });
             }
