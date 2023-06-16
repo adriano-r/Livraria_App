@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Livraria_App.View.ListaReservaLivros">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Editar Reserva" x:Name="CriarReserva" Clicked="CriarReserva_Clicked" />
+            <ListView x:Name="ReservasListView"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" HorizontalOptions="FillAndExpand">
+                                <Grid Padding="5,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                        <Label Text="{Binding id, StringFormat='Id Reserva: {0}'}" FontSize="18" />
+                                        <Label Text="{Binding LivroId, StringFormat='Livro Id: {0}'}" FontSize="14" />
+                                        <Label Text="{Binding UsuarioId, StringFormat='Usuario Id: {0}'}" FontSize="14" TextColor="Gray" />
+                                        <Label Text="{Binding Status, StringFormat='Status: {0}'}" FontSize="14" TextColor="Gray" />
+                                        <Label Text="{Binding DataReserva, StringFormat='Data: {0}'}" FontSize="14" TextColor="Gray" />
+                                    </StackLayout>
+
+
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="End" Grid.Column="3">
+                                        <!--<Button Text="Remover" />
+                                        <Button Text="Editar"  />-->
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

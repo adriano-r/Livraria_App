@@ -15,6 +15,21 @@ namespace Livraria_App.View
         private LivrosApi api;
         private List<Livro> livros;
 
+        private ReservaLivro reserva;
+        private ReservaLivroApi apiReserva;
+
+        private List<ReservaLivro> _reservas;
+        public List<ReservaLivro> Reservas
+        {
+            get { return _reservas; }
+            set
+            {
+                _reservas = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         public ListaLivros()
         {
             InitializeComponent();
@@ -22,6 +37,9 @@ namespace Livraria_App.View
             BindingContext = new LivrosViewModel();
             api = new LivrosApi();
             livros = new List<Livro>();
+
+            ReservaLivroApi apiReserva = new ReservaLivroApi();
+            List<ReservaLivro> reservas = new List<ReservaLivro>();
 
             LoadLivros();
         }
@@ -44,10 +62,28 @@ namespace Livraria_App.View
             Navigation.PushAsync(new LivroPage());
         }
 
-        private void Reservar_Clicked(object sender, EventArgs e)
+        private async void Reservar_Clicked(object sender, EventArgs e)
         {
-            
-        }
-    }
+            try
+            {
+                Navigation.PushAsync(new ReservaLivroPage());
+                //reserva = new ReservaLivro();
+                //reserva.UsuarioId = Convert.ToInt32(10);
+                //reserva.LivroId = Convert.ToInt32(10);
+                //reserva.Status = "Reservado";
+                //reserva.DataReserva = DateTime.Now.ToLocalTime();
 
+                //    reserva.id = Convert.ToInt32(10);
+                //    await apiReserva.CreateReserva(reserva);
+                //    await DisplayAlert("Alerta", "Reserva criada com sucesso!", "Ok");
+
+            }
+            catch(Exception ex)
+            {
+                DisplayAlert("Erro", ex.Message, "OK");
+            }
+
+        }
+    
+    }
 }

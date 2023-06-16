@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Livraria_App.Model;
+using Livraria_App.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,17 +12,37 @@ using Xamarin.Forms.Xaml;
 
 namespace Livraria_App.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ReservaLivroPage : ContentPage
     {
         private ObservableCollection<ItemCarrinho> carrinho;
 
+        private ReservaLivro reserva;
+        private ReservaLivroApi api;
+        private List<ReservaLivro> reservas;
         public ReservaLivroPage()
         {
             InitializeComponent();
 
-            carrinho = new ObservableCollection<ItemCarrinho>();
-            CarrinhoListView.ItemsSource = carrinho;
+            api = new ReservaLivroApi();
+            reservas = new List<ReservaLivro>();
+            LoadReservas();
+
+            //carrinho = new ObservableCollection<ItemCarrinho>();
+            //CarrinhoListView.ItemsSource = carrinho;
+        }
+
+        private async void LoadReservas()
+        {
+            try
+            {
+                reservas = await api.GetReservas();
+                //ReservasListView.ItemsSource = reservas;
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Erro", ex.Message, "Ok");
+            }
         }
 
         private void ReservarButtonClicked(object sender, EventArgs e)
@@ -28,7 +50,7 @@ namespace Livraria_App.View
             int usuarioId;
             int livroId;
 
-            if (int.TryParse(UsuarioEntry.Text, out usuarioId) && int.TryParse(LivroEntry.Text, out livroId))
+            if (int.TryParse(entUsrId.Text, out usuarioId) && int.TryParse(entLvrId.Text, out livroId))
             {
                 if (VerificarDisponibilidadeLivro(livroId))
                 {
@@ -49,21 +71,11 @@ namespace Livraria_App.View
 
         private bool VerificarDisponibilidadeLivro(int livroId)
         {
-            // Implemente a lógica para verificar a disponibilidade do livro
-            // Retorne true se o livro estiver disponível para reserva, caso contrário, retorne false
-
-            // Exemplo de lógica fictícia para verificar disponibilidade
-            // Aqui estamos apenas retornando true para todos os livros
             return true;
         }
 
         private void AdicionarAoCarrinho(int usuarioId, int livroId)
         {
-            // Implemente a lógica para adicionar o livro ao carrinho
-            // Registre as informações do livro no carrinho
-            // Aqui você pode adicionar o livro a uma lista de carrinho ou qualquer outro mecanismo de armazenamento
-
-            // Exemplo de adição fictícia ao carrinho
             carrinho.Add(new ItemCarrinho { Id = livroId, Nome = $"Livro {livroId}", Quantidade = 1 });
         }
 
@@ -72,10 +84,6 @@ namespace Livraria_App.View
             var button = (Button)sender;
             var livroId = (int)button.CommandParameter;
 
-            // Implemente a lógica para remover o livro do carrinho
-            // Aqui você pode remover o livro da lista de carrinh+o ou qualquer outro mecanismo de armazenamento
-
-            // Exemplo de remoção fictícia do carrinho
             var item = carrinho.FirstOrDefault(i => i.Id == livroId);
             if (item != null)
             {
@@ -85,8 +93,90 @@ namespace Livraria_App.View
 
         private void LimparCampos()
         {
-            UsuarioEntry.Text = string.Empty;
-            LivroEntry.Text = string.Empty;
+            entUsrId.Text = string.Empty;
+            entLvrId.Text = string.Empty;
+        }
+
+        private async void btLocalizar_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                reserva = await api.GetReserva(Convert.ToInt32(entId.Text));
+                if (reserva.id > 0)
+                {
+                    entUsrId.Text = reserva.UsuarioId.ToString();
+                    entLvrId.Text = reserva.LivroId.ToString();
+                    entStatus.Text = reserva.Status;
+                    DateTime dataReserva = reserva.DataReserva ?? DateTime.MinValue;
+                    btSalvar.Text = "Atualizar";
+                }
+                else btSalvar.Text = "Cadastrar";
+            }
+            catch (Exception error)
+            {
+                await DisplayAlert("Erro", error.Message, "Ok");
+            }
+        }
+
+        private async void btExcluir_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                reserva = await api.GetReserva(Convert.ToInt32(entId.Text));
+                if (reserva.id > 0)
+                {
+                    await api.DeleteReserva(Convert.ToInt32(entId.Text));
+                }
+                await DisplayAlert("Alerta", "Reserva excluída com sucesso!", "Ok");
+
+                LoadReservas();
+
+                this.LimpaCampos();
+            }
+            catch (Exception error)
+            {
+                await DisplayAlert("Erro", error.Message, "Ok");
+            }
+        }
+
+        private async void btSalvar_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                reserva = new ReservaLivro();
+                reserva.UsuarioId = Convert.ToInt32(entUsrId.Text);
+                reserva.LivroId = Convert.ToInt32(entLvrId.Text);
+                reserva.Status = entStatus.Text;
+                reserva.DataReserva = DateTime.Now.ToLocalTime();
+
+                if (btSalvar.Text == "Atualizar")
+                {
+                    reserva.id = Convert.ToInt32(entId.Text);
+                    await api.UpDateReserva(reserva);
+                    await DisplayAlert("Alerta", "Reserva atualizada com sucesso!", "Ok");
+                }
+                else
+                {
+                    await api.CreateReserva(reserva);
+                    await DisplayAlert("Alerta", "Reserva criada com sucesso!", "Ok");
+                }
+
+                LoadReservas();
+
+                this.LimpaCampos();
+            }
+            catch (Exception error)
+            {
+                await DisplayAlert("Erro", error.Message, "Ok");
+            }
+        }
+
+        private void LimpaCampos()
+        {
+            entId.Text = string.Empty;
+            entUsrId.Text = string.Empty;
+            entLvrId.Text = string.Empty;
+            entStatus.Text = string.Empty;
         }
     }
 

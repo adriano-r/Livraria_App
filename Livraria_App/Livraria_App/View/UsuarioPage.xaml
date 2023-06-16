@@ -4,8 +4,8 @@
              x:Class="Livraria_App.View.UsuarioPage">
 
     <StackLayout Padding="10">
-        <Frame BackgroundColor="OrangeRed" Padding="24" CornerRadius="0">
-            <Label Text="Usuarios" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        <Frame BackgroundColor="Transparent" Padding="24" CornerRadius="0">
+            <Label Text="Usuarios" HorizontalTextAlignment="Center" TextColor="OrangeRed" FontSize="36"/>
         </Frame>
 
 

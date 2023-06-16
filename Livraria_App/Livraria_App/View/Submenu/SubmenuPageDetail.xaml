@@ -4,29 +4,29 @@
              x:Class="Livraria_App.View.Submenu.SubmenuPageDetail"
              Title="Biblioteca">
 
-        <!--<Image Source="{Binding Imagem}" Aspect="AspectFill" HeightRequest="300"></Image>
+    <!--<Image Source="{Binding Imagem}" Aspect="AspectFill" HeightRequest="300"></Image>
         <Label Text="{Binding Titulo}" FontSize="24" FontAttributes="Bold"></Label>
         <Label Text="{Binding Autor}" FontSize="18"></Label>
         <Label Text="{Binding Descricao}" FontSize="16"></Label>
         <Label Text="{Binding Quantidade}" FontSize="16"></Label>
         <Button Text="Reservar" Clicked="ReserveButton_Clicked"></Button>-->
-    <StackLayout Padding="20" Spacing="10" BackgroundColor="#F5F5F5">
+    <StackLayout Padding="20" BackgroundColor="#F5F5F5">
+        <Frame BorderColor="#CCCCCC" HasShadow="True" BackgroundColor="White" Padding="10">
+            <Label Text="Mais popular" FontSize="20" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" />
+        </Frame>
         <Frame BorderColor="#CCCCCC" HasShadow="True" BackgroundColor="White" Padding="10">
             <StackLayout>
-                <Label Text="Mais popular" FontSize="20" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" />
+                <Image Source="livro_gdt.jpg" Aspect="AspectFill" HeightRequest="300" />
 
-                <Image Source="Book_Xamarin.png" Aspect="AspectFill" HeightRequest="300" />
-
-                <Label Text="Livro de Xamarin" FontSize="24" FontAttributes="Bold" TextColor="#333333" />
-                <Label Text="Macrohard" FontSize="18" TextColor="#666666" />
-                <Label Text="Livro feito com o intuito de leitura" FontSize="16" TextColor="#666666" />
+                <Label Text="A Guerra dos Tronos" FontSize="24" FontAttributes="Bold" TextColor="#333333" />
+                <Label Text="George R. R. Martin" FontSize="18" TextColor="#666666" />
+                <Label Text="A Guerra dos Tronos é o primeiro livro da série de fantasia épica As Crônicas de Gelo e Fogo." FontSize="16" TextColor="#666666" />
                 <Label Text="Disponível: 15" FontSize="16" TextColor="#666666" />
-
             </StackLayout>
         </Frame>
-        
-        <Button Text="Ver mais livros..." Clicked="VerMaisButton_Clicked" BackgroundColor="#007AFF" TextColor="White" FontSize="16" CornerRadius="5" HeightRequest="40" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="40,0,40,0" />
-        
+
+        <Button Text="Ver mais livros..." Clicked="VerMaisButton_Clicked" Padding="10" BackgroundColor="#007AFF" TextColor="White" FontSize="16" CornerRadius="5" HeightRequest="40" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="40,0,40,0" />
+
     </StackLayout>
 
 </ContentPage>

@@ -4,18 +4,29 @@
              x:Class="Livraria_App.View.ReservaLivroPage"
              Title="Reserva de Livro">
     <ContentPage.Content>
-        <StackLayout Padding="20">
-            <Label Text="Reserva de Livro" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,20" />
+        <StackLayout Padding="10">
+            <!--<Label Text="Reserva de Livro" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,20" />-->
 
-            <Label Text="Usuário ID:" FontSize="18" />
-            <Entry x:Name="UsuarioEntry" Keyboard="Numeric" Placeholder="Digite o ID do usuário" />
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="entId" Keyboard="Numeric" Placeholder="Id"/>
+                <Button x:Name="btLocalizar" Text="Localizar" Clicked="btLocalizar_Clicked" />
+                <Button x:Name="btExcluir" Text="Excluir" Clicked="btExcluir_Clicked" />
+            </StackLayout>
 
-            <Label Text="Livro ID:" FontSize="18" />
-            <Entry x:Name="LivroEntry" Keyboard="Numeric" Placeholder="Digite o ID do livro" />
+            <!--<StackLayout>
+                <Label Text="Usuário ID:" FontSize="18" />
+                <Entry x:Name="entUsuarioId" Keyboard="Numeric" Placeholder="Digite o ID do usuário" />
+                <Label Text="Livro ID:" FontSize="18" />
+                <Entry x:Name="entLivroId" Keyboard="Numeric" Placeholder="Digite o ID do livro" />
+                <Button Text="Reservar" Clicked="ReservarButtonClicked" Margin="0,20,0,0" />
+            </StackLayout>-->
 
-            <Button Text="Reservar" Clicked="ReservarButtonClicked" Margin="0,20,0,0" />
+            <Entry Placeholder="Usuario ID:" x:Name="entUsrId" Keyboard="Numeric" />
+            <Entry Placeholder="Livro ID:" x:Name="entLvrId" Keyboard="Numeric"/>
+            <Entry Placeholder="Status:" x:Name="entStatus" Keyboard="Chat"/>
+            <Button Text="Cadastrar" x:Name="btSalvar" Clicked="btSalvar_Clicked" />
 
-            <ListView x:Name="CarrinhoListView"
+            <!--<ListView x:Name="CarrinhoListView"
                   SeparatorVisibility="None"
                   HasUnevenRows="true">
                 <ListView.ItemTemplate>
@@ -30,7 +41,7 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </ListView>-->
         </StackLayout>
     </ContentPage.Content>
 

@@ -16,14 +16,14 @@ namespace Livraria_App.View
     {
         private Usuario usuario;
         private UsuariosApi api;
-        private List<Usuario> usuarios; // Lista de usuários
+        private List<Usuario> usuarios;
 
         public UsuarioPage()
         {
             InitializeComponent();
             api = new UsuariosApi();
-            usuarios = new List<Usuario>(); // Inicializar a lista de usuários
-            LoadUsuarios(); // Carregar a lista de usuários
+            usuarios = new List<Usuario>();
+            LoadUsuarios();
         }
 
         private async void LoadUsuarios()
@@ -106,7 +106,7 @@ namespace Livraria_App.View
                     await DisplayAlert("Alerta", "Usuário criado com sucesso!", "Ok");
                 }
 
-                LoadUsuarios(); // Atualizar a lista de usuários
+                LoadUsuarios(); 
 
                 this.LimpaCampos();
             }
