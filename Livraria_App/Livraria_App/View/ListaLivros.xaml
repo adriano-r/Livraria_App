@@ -20,10 +20,11 @@
                                     </Grid.ColumnDefinitions>
                                     <Image Source="{Binding Imagem}" HeightRequest="130" WidthRequest="130" Aspect="AspectFit" VerticalOptions="CenterAndExpand" />
                                     <StackLayout Grid.Column="1" Margin="10,0,0,0">
-                                        <Label Text="{Binding Titulo}" FontSize="18" />
+                                        <Label Text="{Binding Titulo}" FontSize="18" FontAttributes="Bold"/>
                                         <Label Text="{Binding Autor}" FontSize="14" TextColor="Gray" />
+                                        <Label Text="{Binding id, StringFormat='Livro Id: {0}'}" FontSize="Caption" />
                                         <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
-                                        <Label Text="{Binding Quantidade, StringFormat='Quantidade: {0}'}" FontSize="14" TextColor="Gray" />
+                                        <Label Text="{Binding Quantidade, StringFormat='Disponiveis: {0}'}" FontSize="14" TextColor="Gray" />
 
                                         <StackLayout Orientation="Horizontal" Spacing="10">
                                             <Button Text="Reservar" x:Name="Reservar" Clicked="Reservar_Clicked" CommandParameter="{Binding Id}">

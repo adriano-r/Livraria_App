@@ -6,10 +6,10 @@
         <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
             <Label Text="Bem vindo!" HorizontalOptions="Center" FontSize="24" TextColor="Black" Margin="0,0,0,20"></Label>
             <Image Source="Register.png" WidthRequest="180" HeightRequest="180"></Image>
-            <Entry x:Name="txtNome" Placeholder="Nome" PlaceholderColor="Gray"></Entry>
-            <Entry x:Name="txtSobrenome" Placeholder="Sobrenome" PlaceholderColor="Gray"></Entry>
-            <Entry x:Name="txtEmail" Placeholder="Email" PlaceholderColor="Gray"></Entry>
-            <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True" PlaceholderColor="Gray"></Entry>
+            <Entry x:Name="entNome" Placeholder="Nome" PlaceholderColor="Gray"></Entry>
+            <Entry x:Name="entSobre" Placeholder="Sobrenome" PlaceholderColor="Gray"></Entry>
+            <Entry x:Name="entEmail" Placeholder="Email" PlaceholderColor="Gray"></Entry>
+            <Entry x:Name="entSenha" Placeholder="Senha" IsPassword="True" PlaceholderColor="Gray"></Entry>
             <Button 
             VerticalOptions="Center" 
             Text="Registrar"

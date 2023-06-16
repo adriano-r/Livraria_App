@@ -21,6 +21,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Image Source="{Binding Avatar}" HeightRequest="130" WidthRequest="130" Aspect="AspectFill" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
                                     <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                        <Label Text="{Binding id, StringFormat='Usuario Id: {0}'}" FontSize="Caption" />
                                         <Label Text="{Binding Nome}" FontSize="18" />
                                         <Label Text="{Binding Sobrenome}" FontSize="14" TextColor="Gray" />
                                         <Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
