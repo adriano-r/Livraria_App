@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Livraria_App.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -18,6 +19,13 @@ namespace Livraria_App
         }
 
         public bool IsUserLoggedIn { get; set; }
+
+        public Usuario Usuario { get; set; }
+
+        public SessionManager(Usuario usuario)
+        {
+            Usuario = usuario;
+        }
 
         private SessionManager()
         {

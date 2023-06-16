@@ -8,8 +8,8 @@
         <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
             <Label Text="Bem Vindo!" HorizontalOptions="Center" FontSize="24" TextColor="Black" Margin="0,0,0,20"></Label>
             <Image Source="Login.png" WidthRequest="180" HeightRequest="180"></Image>
-            <Entry x:Name="txtEmail" Placeholder="Nome" PlaceholderColor="Gray"></Entry>
-            <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True" PlaceholderColor="Gray"></Entry>
+            <Entry x:Name="entNome" Placeholder="Nome" PlaceholderColor="Gray"></Entry>
+            <Entry x:Name="entSenha" Placeholder="Senha" IsPassword="True" PlaceholderColor="Gray"></Entry>
             <Button 
                 VerticalOptions="Center" 
                 Text="Login"

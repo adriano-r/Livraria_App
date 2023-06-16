@@ -1,5 +1,6 @@
 ﻿using Android.Content.Res;
 using Livraria_App.Model;
+using Livraria_App.Services;
 using Livraria_App.View.Submenu;
 using Plugin.Connectivity;
 using System;
@@ -17,26 +18,28 @@ namespace Livraria_App.View
     public partial class LoginPage : ContentPage
     {
         List<Usuario> listaUsuarios;
+        UsuariosApi api = new UsuariosApi();
         public LoginPage()
         {
             InitializeComponent();
             listaUsuarios = new List<Usuario>();
         }
 
-        public void Logar()
+        public async void Logar()
         {
 
-            //listaUsuarios = await ApiService.ObterUser();
+            listaUsuarios = await api.GetUsuarios();
 
-            //var usuario = listaUsuarios.Where(x => x.Nome.ToLower() == txtNome.Text.ToLower() && x.Senha.ToLower() == txtSenha.Text.ToLower()).ToList();
-            if (txtEmail.Text == "adriano" && txtSenha.Text == "123456")
+            var usuario = listaUsuarios.Where(x => x.Nome.ToLower() == entNome.Text.ToLower() && x.Senha.ToLower() == entSenha.Text.ToLower()).ToList();
+            if (usuario.Count > 0)
             {
                 SessionManager.Instance.IsUserLoggedIn = true;
-                Navigation.PushAsync(new SubmenuPage());
+                SessionManager.Instance.Usuario.Nome = entNome.Text ;
+                await Navigation.PushAsync(new SubmenuPage());
             }
             else
             {
-                DisplayAlert("Ops...!", "Usuario ou Senha incorreta!", "Tente Novamente");
+                await DisplayAlert("Ops...!", "Usuario ou Senha incorreta!", "Tente Novamente");
             }
         }
 
