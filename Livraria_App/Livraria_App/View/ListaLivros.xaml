@@ -2,8 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Livraria_App.View.ListaLivros"
-             Title="Lista de Livros">
+             Title="Lista de Livros"
+             xmlns:converters="clr-namespace:Livraria_App.Converters">
+
+    <ContentPage.Resources>
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+    </ContentPage.Resources>
+
     <ContentPage.Content>
+        
         <StackLayout>
             <Button Text="Criar Livro" x:Name="CriarLivro" Clicked="CriarLivro_Clicked" />
             <ListView x:Name="LivrosListView"
@@ -27,7 +34,7 @@
                                         <Label Text="{Binding Quantidade, StringFormat='Disponiveis: {0}'}" FontSize="14" TextColor="Gray" />
 
                                         <StackLayout Orientation="Horizontal" Spacing="10">
-                                            <Button Text="Reservar" x:Name="Reservar" Clicked="Reservar_Clicked" CommandParameter="{Binding Id}">
+                                            <Button Text="Reservar" x:Name="Reservar" Clicked="Reservar_Clicked" CommandParameter="{Binding Id}" IsVisible="{Binding NivelAcesso, Converter={StaticResource VisibilityConverter}}">
                                                 <Button.Resources>
                                                     <Style TargetType="Button">
                                                         <Setter Property="BackgroundColor" Value="Gray" />

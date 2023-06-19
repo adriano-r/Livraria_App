@@ -27,19 +27,31 @@ namespace Livraria_App.View
 
         public async void Logar()
         {
-
             listaUsuarios = await api.GetUsuarios();
 
-            var usuario = listaUsuarios.Where(x => x.Nome.ToLower() == entNome.Text.ToLower() && x.Senha.ToLower() == entSenha.Text.ToLower()).ToList();
-            if (usuario.Count > 0)
+            var usuario = listaUsuarios.FirstOrDefault(x => x.Nome.ToLower() == entNome.Text.ToLower() && x.Senha.ToLower() == entSenha.Text.ToLower());
+            if (usuario != null)
             {
                 SessionManager.Instance.IsUserLoggedIn = true;
-                SessionManager.Instance.Usuario.Nome = entNome.Text ;
-                await Navigation.PushAsync(new SubmenuPage());
+
+                if (usuario.NivelAcesso == "admin")
+                {
+                    // Acesso total aos livros
+                    await Navigation.PushAsync(new SubmenuPage());
+                }
+                else if (usuario.NivelAcesso == "user")
+                {
+                    // Acesso limitado aos livros
+                    await Navigation.PushAsync(new SubmenuPageDetail());
+                }
+                else
+                {
+                    await DisplayAlert("Acesso Negado", "Usuário não possui permissão para acessar os livros.", "OK");
+                }
             }
             else
             {
-                await DisplayAlert("Ops...!", "Usuario ou Senha incorreta!", "Tente Novamente");
+                await DisplayAlert("Ops...!", "Usuário ou Senha incorreta!", "Tente Novamente");
             }
         }
 

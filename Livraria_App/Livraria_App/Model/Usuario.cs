@@ -22,6 +22,8 @@ namespace Livraria_App.Model
         public string Email { get; set; }
         public string Senha { get; set; }
         public string Avatar { get; set; }
+
+        public string NivelAcesso { get; set; }
     }
 
     //public Usuario(string nome, string sobrenome, string email, string avatar)
