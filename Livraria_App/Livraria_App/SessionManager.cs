@@ -20,6 +20,8 @@ namespace Livraria_App
 
         public bool IsUserLoggedIn { get; set; }
 
+        public string NivelAcesso { get; set; }
+
         public Usuario Usuario { get; set; }
 
         public SessionManager(Usuario usuario)

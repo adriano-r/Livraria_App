@@ -33,6 +33,7 @@ namespace Livraria_App.View
             if (usuario != null)
             {
                 SessionManager.Instance.IsUserLoggedIn = true;
+                SessionManager.Instance.NivelAcesso = usuario.NivelAcesso; // Define o NivelAcesso no SessionManager
 
                 if (usuario.NivelAcesso == "admin")
                 {

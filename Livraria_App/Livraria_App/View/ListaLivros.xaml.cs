@@ -59,31 +59,21 @@ namespace Livraria_App.View
 
         private void CriarLivro_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new LivroPage());
+            if (SessionManager.Instance.NivelAcesso == "user")
+            {
+                DisplayAlert("Acesso Negado", "Você não tem permissão para fazer uma reserva.", "OK");
+            }
+            else
+            {
+                Navigation.PushAsync(new LivroPage());
+            }
         }
 
-        private async void Reservar_Clicked(object sender, EventArgs e)
+        private void Reservar_Clicked(object sender, EventArgs e)
         {
-            try
-            {
                 Navigation.PushAsync(new ReservaLivroPage());
-                //reserva = new ReservaLivro();
-                //reserva.UsuarioId = Convert.ToInt32(10);
-                //reserva.LivroId = Convert.ToInt32(10);
-                //reserva.Status = "Reservado";
-                //reserva.DataReserva = DateTime.Now.ToLocalTime();
-
-                //    reserva.id = Convert.ToInt32(10);
-                //    await apiReserva.CreateReserva(reserva);
-                //    await DisplayAlert("Alerta", "Reserva criada com sucesso!", "Ok");
-
-            }
-            catch(Exception ex)
-            {
-                DisplayAlert("Erro", ex.Message, "OK");
-            }
-
         }
-    
+
+
     }
 }
