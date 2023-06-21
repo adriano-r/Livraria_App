@@ -149,27 +149,34 @@ namespace Livraria_App.View
                 reserva.Status = entStatus.Text;
                 reserva.DataReserva = DateTime.Now.ToLocalTime();
 
-                if (btSalvar.Text == "Atualizar")
-                {
-                    reserva.id = Convert.ToInt32(entId.Text);
-                    await api.UpDateReserva(reserva);
-                    await DisplayAlert("Alerta", "Reserva atualizada com sucesso!", "Ok");
-                }
-                else
-                {
-                    await api.CreateReserva(reserva);
-                    await DisplayAlert("Alerta", "Reserva criada com sucesso!", "Ok");
-                }
+                // Exibe um diálogo de confirmação
+                bool confirm = await DisplayAlert("Confirmação", "Deseja criar a reserva?", "Sim", "Não");
 
-                LoadReservas();
+                if (confirm)
+                {
+                    if (btSalvar.Text == "Atualizar")
+                    {
+                        reserva.id = Convert.ToInt32(entId.Text);
+                        await api.UpDateReserva(reserva);
+                        await DisplayAlert("Alerta", "Reserva atualizada com sucesso!", "Ok");
+                    }
+                    else
+                    {
+                        await api.CreateReserva(reserva);
+                        await DisplayAlert("Alerta", "Reserva criada com sucesso!", "Ok");
+                    }
 
-                this.LimpaCampos();
+                    LoadReservas();
+
+                    this.LimpaCampos();
+                }
             }
             catch (Exception error)
             {
                 await DisplayAlert("Erro", error.Message, "Ok");
             }
         }
+
 
         private void LimpaCampos()
         {

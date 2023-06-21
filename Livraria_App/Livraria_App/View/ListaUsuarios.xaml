@@ -5,7 +5,7 @@
              Title="Lista de Usuários">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Criar Usuario" x:Name="CriarUsuario" Clicked="CriarUsuario_Clicked" />
+            <Button Text="Alterar Usuario" x:Name="CriarUsuario" Clicked="CriarUsuario_Clicked" />
             <ListView x:Name="UsuariosListView"
                       SeparatorVisibility="None"
                       HasUnevenRows="true">
@@ -27,8 +27,8 @@
                                         <Label Text="{Binding Email}" FontSize="14" TextColor="Gray" />
                                     </StackLayout>
                                     <StackLayout Orientation="Vertical" HorizontalOptions="End" Grid.Column="3">
-                                        <Button Text="Remover" />
-                                        <Button Text="Editar"  />
+                                        <!--<Button Text="Remover" />-->
+                                        <!--<Button Text="Editar"  />-->
                                     </StackLayout>
                                 </Grid>
                             </StackLayout>

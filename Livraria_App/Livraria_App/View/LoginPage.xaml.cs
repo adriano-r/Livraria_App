@@ -37,17 +37,11 @@ namespace Livraria_App.View
 
                 if (usuario.NivelAcesso == "admin")
                 {
-                    // Acesso total aos livros
                     await Navigation.PushAsync(new SubmenuPage());
-                }
-                else if (usuario.NivelAcesso == "user")
-                {
-                    // Acesso limitado aos livros
-                    await Navigation.PushAsync(new SubmenuPageDetail());
                 }
                 else
                 {
-                    await DisplayAlert("Acesso Negado", "Usuário não possui permissão para acessar os livros.", "OK");
+                    await Navigation.PushAsync(new SubmenuPageDetail());
                 }
             }
             else

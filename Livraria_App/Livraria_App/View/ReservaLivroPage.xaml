@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:Livraria_App.ViewModel" x:DataType="viewmodel:ListaUsuariosViewModel"
              x:Class="Livraria_App.View.ReservaLivroPage"
              Title="Reserva de Livro">
     <ContentPage.Content>
@@ -24,7 +24,7 @@
             <Entry Placeholder="Usuario ID:" x:Name="entUsrId" Keyboard="Numeric" />
             <Entry Placeholder="Livro ID:" x:Name="entLvrId" Keyboard="Numeric"/>
             <Entry Placeholder="Status:" x:Name="entStatus" Keyboard="Chat"/>
-            <Button Text="Cadastrar" x:Name="btSalvar" Clicked="btSalvar_Clicked" />
+            <Button Text="Reservar" x:Name="btSalvar" Clicked="btSalvar_Clicked" />
 
             <!--<ListView x:Name="CarrinhoListView"
                   SeparatorVisibility="None"
