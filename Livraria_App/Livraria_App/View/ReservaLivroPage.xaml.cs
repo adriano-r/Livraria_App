@@ -50,11 +50,12 @@ namespace Livraria_App.View
             int usuarioId;
             int livroId;
 
-            if (int.TryParse(entUsrId.Text, out usuarioId) && int.TryParse(entLvrId.Text, out livroId))
-            {
+            //if (int.TryParse(entUsrId.Text, out usuarioId) && int.TryParse(entLvrId.Text, out livroId))
+            if (int.TryParse(entLvrId.Text, out livroId))
+                {
                 if (VerificarDisponibilidadeLivro(livroId))
                 {
-                    AdicionarAoCarrinho(usuarioId, livroId);
+                    //AdicionarAoCarrinho(usuarioId, livroId);
                     DisplayAlert("Sucesso", "Livro adicionado ao carrinho!", "OK");
                     LimparCampos();
                 }
@@ -81,19 +82,27 @@ namespace Livraria_App.View
 
         private void RemoverButtonClicked(object sender, EventArgs e)
         {
-            var button = (Button)sender;
-            var livroId = (int)button.CommandParameter;
-
-            var item = carrinho.FirstOrDefault(i => i.Id == livroId);
-            if (item != null)
+            if (SessionManager.Instance.NivelAcesso != "admin")
             {
-                carrinho.Remove(item);
+                DisplayAlert("Acesso Negado", "Você não tem permissão para excluir uma reserva.", "OK");
+            }
+            else
+            {
+
+                var button = (Button)sender;
+                var livroId = (int)button.CommandParameter;
+
+                var item = carrinho.FirstOrDefault(i => i.Id == livroId);
+                if (item != null)
+                {
+                    carrinho.Remove(item);
+                }
             }
         }
 
         private void LimparCampos()
         {
-            entUsrId.Text = string.Empty;
+            //entUsrId.Text = string.Empty;
             entLvrId.Text = string.Empty;
         }
 
@@ -104,7 +113,7 @@ namespace Livraria_App.View
                 reserva = await api.GetReserva(Convert.ToInt32(entId.Text));
                 if (reserva.id > 0)
                 {
-                    entUsrId.Text = reserva.UsuarioId.ToString();
+                    //entUsrId.Text = reserva.UsuarioId.ToString();
                     entLvrId.Text = reserva.LivroId.ToString();
                     entStatus.Text = reserva.Status;
                     DateTime dataReserva = reserva.DataReserva ?? DateTime.MinValue;
@@ -120,22 +129,29 @@ namespace Livraria_App.View
 
         private async void btExcluir_Clicked(object sender, EventArgs e)
         {
-            try
+            if (SessionManager.Instance.NivelAcesso != "admin")
             {
-                reserva = await api.GetReserva(Convert.ToInt32(entId.Text));
-                if (reserva.id > 0)
-                {
-                    await api.DeleteReserva(Convert.ToInt32(entId.Text));
-                }
-                await DisplayAlert("Alerta", "Reserva excluída com sucesso!", "Ok");
-
-                LoadReservas();
-
-                this.LimpaCampos();
+               await DisplayAlert("Acesso Negado", "Você não tem permissão para excluir uma reserva.", "OK");
             }
-            catch (Exception error)
+            else
             {
-                await DisplayAlert("Erro", error.Message, "Ok");
+                try
+                {
+                    reserva = await api.GetReserva(Convert.ToInt32(entId.Text));
+                    if (reserva.id > 0)
+                    {
+                        await api.DeleteReserva(Convert.ToInt32(entId.Text));
+                    }
+                    await DisplayAlert("Alerta", "Reserva excluída com sucesso!", "Ok");
+
+                    LoadReservas();
+
+                    this.LimpaCampos();
+                }
+                catch (Exception error)
+                {
+                    await DisplayAlert("Erro", error.Message, "Ok");
+                }
             }
         }
 
@@ -144,13 +160,12 @@ namespace Livraria_App.View
             try
             {
                 reserva = new ReservaLivro();
-                reserva.UsuarioId = Convert.ToInt32(entUsrId.Text);
+                reserva.UsuarioId = Convert.ToInt32( SessionManager.Instance.id);
                 reserva.LivroId = Convert.ToInt32(entLvrId.Text);
                 reserva.Status = entStatus.Text;
                 reserva.DataReserva = DateTime.Now.ToLocalTime();
 
-                // Exibe um diálogo de confirmação
-                bool confirm = await DisplayAlert("Confirmação", "Deseja criar a reserva?", "Sim", "Não");
+                bool confirm = await DisplayAlert("Confirmação", "Deseja continuar?", "Sim", "Não");
 
                 if (confirm)
                 {
@@ -181,7 +196,7 @@ namespace Livraria_App.View
         private void LimpaCampos()
         {
             entId.Text = string.Empty;
-            entUsrId.Text = string.Empty;
+            //entUsrId.Text = string.Empty;
             entLvrId.Text = string.Empty;
             entStatus.Text = string.Empty;
         }

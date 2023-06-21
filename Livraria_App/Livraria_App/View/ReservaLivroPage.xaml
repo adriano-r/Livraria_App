@@ -8,7 +8,7 @@
             <!--<Label Text="Reserva de Livro" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,20" />-->
 
             <StackLayout Orientation="Horizontal">
-                <Entry x:Name="entId" Keyboard="Numeric" Placeholder="Id"/>
+                <Entry x:Name="entId" Keyboard="Numeric" Placeholder="Id da Reserva"/>
                 <Button x:Name="btLocalizar" Text="Localizar" Clicked="btLocalizar_Clicked" />
                 <Button x:Name="btExcluir" Text="Excluir" Clicked="btExcluir_Clicked" />
             </StackLayout>
@@ -21,27 +21,11 @@
                 <Button Text="Reservar" Clicked="ReservarButtonClicked" Margin="0,20,0,0" />
             </StackLayout>-->
 
-            <Entry Placeholder="Usuario ID:" x:Name="entUsrId" Keyboard="Numeric" />
+            <!--<Entry Placeholder="Usuario ID:" x:Name="entUsrId" Keyboard="Numeric" />-->
             <Entry Placeholder="Livro ID:" x:Name="entLvrId" Keyboard="Numeric"/>
-            <Entry Placeholder="Status:" x:Name="entStatus" Keyboard="Chat"/>
+            <Entry Placeholder="Descrição:" x:Name="entStatus" Keyboard="Chat"/>
             <Button Text="Reservar" x:Name="btSalvar" Clicked="btSalvar_Clicked" />
 
-            <!--<ListView x:Name="CarrinhoListView"
-                  SeparatorVisibility="None"
-                  HasUnevenRows="true">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Titulo}" FontSize="18" />
-                                <Label Text="{Binding Autor}" FontSize="14" TextColor="Gray" />
-                                <Label Text="{Binding StatusReserva}" FontSize="14" TextColor="Gray" />
-                                <Button Text="Remover" Clicked="RemoverButtonClicked" CommandParameter="{Binding Id}" HorizontalOptions="EndAndExpand" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
         </StackLayout>
     </ContentPage.Content>
 

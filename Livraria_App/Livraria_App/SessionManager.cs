@@ -22,6 +22,9 @@ namespace Livraria_App
 
         public string NivelAcesso { get; set; }
 
+        public string id{ get; set; }
+
+
         public Usuario Usuario { get; set; }
 
         public SessionManager(Usuario usuario)
