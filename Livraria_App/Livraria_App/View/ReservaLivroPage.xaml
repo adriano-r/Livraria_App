@@ -5,21 +5,12 @@
              Title="Reserva de Livro">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <!--<Label Text="Reserva de Livro" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,20" />-->
 
             <StackLayout Orientation="Horizontal">
                 <Entry x:Name="entId" Keyboard="Numeric" Placeholder="Id da Reserva"/>
                 <Button x:Name="btLocalizar" Text="Localizar" Clicked="btLocalizar_Clicked" />
                 <Button x:Name="btExcluir" Text="Excluir" Clicked="btExcluir_Clicked" />
             </StackLayout>
-
-            <!--<StackLayout>
-                <Label Text="Usuário ID:" FontSize="18" />
-                <Entry x:Name="entUsuarioId" Keyboard="Numeric" Placeholder="Digite o ID do usuário" />
-                <Label Text="Livro ID:" FontSize="18" />
-                <Entry x:Name="entLivroId" Keyboard="Numeric" Placeholder="Digite o ID do livro" />
-                <Button Text="Reservar" Clicked="ReservarButtonClicked" Margin="0,20,0,0" />
-            </StackLayout>-->
 
             <!--<Entry Placeholder="Usuario ID:" x:Name="entUsrId" Keyboard="Numeric" />-->
             <Entry Placeholder="Livro ID:" x:Name="entLvrId" Keyboard="Numeric"/>

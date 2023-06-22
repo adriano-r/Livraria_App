@@ -75,30 +75,6 @@ namespace Livraria_App.View
             return true;
         }
 
-        private void AdicionarAoCarrinho(int usuarioId, int livroId)
-        {
-            carrinho.Add(new ItemCarrinho { Id = livroId, Nome = $"Livro {livroId}", Quantidade = 1 });
-        }
-
-        private void RemoverButtonClicked(object sender, EventArgs e)
-        {
-            if (SessionManager.Instance.NivelAcesso != "admin")
-            {
-                DisplayAlert("Acesso Negado", "Você não tem permissão para excluir uma reserva.", "OK");
-            }
-            else
-            {
-
-                var button = (Button)sender;
-                var livroId = (int)button.CommandParameter;
-
-                var item = carrinho.FirstOrDefault(i => i.Id == livroId);
-                if (item != null)
-                {
-                    carrinho.Remove(item);
-                }
-            }
-        }
 
         private void LimparCampos()
         {

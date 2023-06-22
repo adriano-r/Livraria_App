@@ -16,9 +16,9 @@ namespace Livraria_App
             HotReloader.Current.Run(this);
 #endif
 
-            //MainPage = new MainPage();
+            MainPage = new ScanPage();
             //MainPage = new NavigationPage(new SubmenuPage());
-            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new LoginPage());
 
         }
 

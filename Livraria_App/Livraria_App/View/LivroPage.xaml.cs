@@ -42,6 +42,7 @@ namespace Livraria_App.View
             {
                 await DisplayAlert("Erro", error.Message, "Ok");
             }
+            this.LimpaCampos();
         }
 
         private async void btExcluir_Clicked(object sender, EventArgs e)

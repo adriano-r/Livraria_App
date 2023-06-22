@@ -36,10 +36,9 @@ namespace Livraria_App
             new Livro("Outro Livro", "Outro Autor", "Descrição do Outro Livro", 5, "Book_CSharp.jpg")
         };
 
-            // Atribua a origem de dados aos carrosséis
-            CarouselViewLivros.ItemsSource = LivrosDestacados;
-            CarouselViewOutrosLivros.ItemsSource = OutrosLivros;
+            
         }
+
     }
 
 }
