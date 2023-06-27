@@ -10,17 +10,30 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame x:Name="scannerFrame" BorderColor="Red" BackgroundColor="Transparent" IsClippedToBounds="True">
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Blue" Opacity="0.6">
+                <Frame x:Name="scannerFrame" BorderColor="Red" BackgroundColor="Transparent" IsClippedToBounds="True" HorizontalOptions="CenterAndExpand">
+                </Frame>
+
+                <Frame BackgroundColor="Transparent"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       WidthRequest="300"
+                       HeightRequest="300"
+                       CornerRadius="10"
+                       BorderColor="Red"
+                       HasShadow="False">
                     <gv:CameraView x:Name="Camera"
                                    OnDetected="Camera_OnDetected"
                                    TorchOn="False"
                                    VibrationOnDetected="True"
-                                   ScanInterval="100"
-                                   IsScanning="True" AnchorX="1" />
-                </Frame>
+                                   ScanInterval="500"
+                                   IsScanning="True" 
+                                   PreviewWidth="30"
+                                   WidthRequest="30"
+                                   MinimumWidthRequest="30"
+                                   BackgroundColor="Aqua"/>
 
-                <Image Source="login.png" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="200" HeightRequest="200" />
+                </Frame>
             </Grid>
 
             <Button Text="Ler QR Code" x:Name="LerQRCode" Clicked="LerQRCode_Clicked" HorizontalOptions="Center" />
