@@ -4,17 +4,34 @@
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              xmlns:gv="clr-namespace:GoogleVisionBarCodeScanner;assembly=BarcodeScanner.XF"
              x:Class="Livraria_App.ScanPage">
-    
+            
+            <!--<zxing:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult" />-->
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Leitura de qrCode"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
 
-            <Label x:Name="scanResultText" FontSize="24" />
-            <!--<zxing:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult" />-->
-            <gv:CameraView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" OnDetected="Camera_OnDetected"
-                           TorchOn="False" VibrationOnDetected="True" ScanInterval="100" x:Name="Camera" IsVisible="True" />
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame x:Name="scannerFrame" BorderColor="Red" BackgroundColor="Transparent" IsClippedToBounds="True">
+                    <gv:CameraView x:Name="Camera"
+                                   OnDetected="Camera_OnDetected"
+                                   TorchOn="False"
+                                   VibrationOnDetected="True"
+                                   ScanInterval="100"
+                                   IsScanning="True" AnchorX="1" />
+                </Frame>
+
+                <Image Source="login.png" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="200" HeightRequest="200" />
+            </Grid>
+
+            <Button Text="Ler QR Code" x:Name="LerQRCode" Clicked="LerQRCode_Clicked" HorizontalOptions="Center" />
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+                <Button Text="Zoom in" x:Name="ZoomIn" Clicked="ZoomIn_Clicked" />
+                <Button Text="Zoom out" x:Name="ZoomOut" Clicked="ZoomOut_Clicked" />
+                <Label x:Name="scanResultText" FontSize="24" />
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
+
 </ContentPage>
