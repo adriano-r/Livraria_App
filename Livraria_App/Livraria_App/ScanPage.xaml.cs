@@ -88,5 +88,12 @@ namespace Livraria_App
             Navigation.PushAsync(new LoginPage());
 
         }
+
+
+
+        private void Lanterna_Clicked(object sender, EventArgs e)
+        {
+            Camera.TorchOn = !Camera.TorchOn;
+        }
     }
 }
