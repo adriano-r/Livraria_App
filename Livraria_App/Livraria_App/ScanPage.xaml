@@ -70,11 +70,8 @@
                          VerticalOptions="Center"
                          HorizontalOptions="End"
                          />
-
-
+                
                 <Image Source="scan.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="300" WidthRequest="300" />
-
-
 
             </Grid>
 
@@ -84,7 +81,9 @@
                 <Button Text="Zoom out" x:Name="ZoomOut" Clicked="ZoomOut_Clicked" />
                 <Button Text="Lanterna" x:Name="Lanterna" Clicked="Lanterna_Clicked" />
                 <Label x:Name="scanResultText" FontSize="24" />
+                <Button Text="LerQRCode" Opacity="0.3" x:Name="LerQRCode" Clicked="LerQRCode_Clicked"/>
             </StackLayout>
+
 
         </StackLayout>
     </ContentPage.Content>

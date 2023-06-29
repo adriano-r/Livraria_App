@@ -2,6 +2,7 @@
 using Livraria_App.View;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -66,19 +67,19 @@ namespace Livraria_App
 
         }
 
-        private void LerQRCode_Clicked(object sender, EventArgs e)
+        private async Task LerQRCode_ClickedAsync(object sender, EventArgs e)
         {
-            //var scan = new ZXingScannerPage();
-            //await Navigation.PushModalAsync(scan);
+            var scan = new ZXing.Net.Mobile.Forms.ZXingScannerPage();
+            await Navigation.PushModalAsync(scan);
 
-            //scan.OnScanResult += (result) =>
-            //{
-            //    Device.BeginInvokeOnMainThread(async () =>
-            //    {
-            //        await Navigation.PopModalAsync();
-            //        await DisplayAlert("Valor: ", "" + result.Text, "OK");
-            //    });
-            //};
+            scan.OnScanResult += (result) =>
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Navigation.PopModalAsync();
+                    await DisplayAlert("Valor: ", "" + result.Text, "OK");
+                });
+            };
             Camera.IsVisible = !Camera.IsVisible;
         }
 
@@ -94,6 +95,21 @@ namespace Livraria_App
         private void Lanterna_Clicked(object sender, EventArgs e)
         {
             Camera.TorchOn = !Camera.TorchOn;
+        }
+
+        private async void LerQRCode_Clicked(object sender, EventArgs e)
+        {
+            var scan = new ZXing.Net.Mobile.Forms.ZXingScannerPage();
+            await Navigation.PushModalAsync(scan);
+
+            scan.OnScanResult += (result) =>
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Navigation.PopModalAsync();
+                    await DisplayAlert("Valor: ", "" + result.Text, "OK");
+                });
+            };
         }
     }
 }
