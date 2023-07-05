@@ -3,6 +3,7 @@ using Livraria_App.View;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,20 +14,74 @@ namespace Livraria_App
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScanPage : ContentPage
     {
+
         public ScanPage()
         {
-            //GoogleVisionBarCodeScanner.Methods.SetSupportBarcodeFormat(GoogleVisionBarCodeScanner.BarcodeFormats.QRCode | GoogleVisionBarCodeScanner.BarcodeFormats.Code39);
             InitializeComponent();
             GoogleVisionBarCodeScanner.Methods.AskForRequiredPermission();
+
+            // Cria o campo estéril
+            var sterileField = new BoxView
+            {
+                BackgroundColor = Color.Transparent,
+                Opacity = 0.5 // Define a opacidade para torná-lo semi-transparente
+            };
+
+            // Cria o campo de leitura
+            var scanField = new BoxView
+            {
+                BackgroundColor = Color.Transparent // Define a cor como transparente para que o scanner possa ser exibido
+            };
+
+            // Cria o componente GoogleVisionScannerView
+            var googleVisionScannerView = new GoogleVisionScannerView
+            {
+                IsScanning = true,
+                // Defina outras propriedades do scanner conforme necessário
+            };
+
+            // Manipula o evento OnScanResult para obter o resultado da leitura do código de barras
+            googleVisionScannerView.OnScanResult += (result) =>
+            {
+                // Processa o resultado da leitura do código de barras
+                // Aqui você pode adicionar sua lógica para manipular os dados do código de barras lido
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Barcode Scanned", result.ToString(), "OK");
+                });
+            };
+
+            // Cria a estrutura de layout
+            var layout = new AbsoluteLayout();
+            layout.Children.Add(sterileField, new Rectangle(2, 0, 1, 1), AbsoluteLayoutFlags.All);
+            layout.Children.Add(scanField, new Rectangle(0.2, 0.2, 0.6, 0.6), AbsoluteLayoutFlags.All);
+            layout.Children.Add(googleVisionScannerView, new Rectangle(0.2, 0.2, 0.6, 0.6), AbsoluteLayoutFlags.All);
+
+            // Define o layout como conteúdo da página
+            Content = layout;
+
+            // Obter informações sobre a exibição principal
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
+            // Orientação (Landscape, Portrait, Square, Unknown)
+            var orientation = mainDisplayInfo.Orientation;
+
+            // Rotação (0, 90, 180, 270)
+            var rotation = mainDisplayInfo.Rotation;
+
+            // Largura (em pixels)
+            var width = mainDisplayInfo.Width;
+
+            // Altura (em pixels)
+            var height = mainDisplayInfo.Height;
+
+            // Densidade de tela
+            var density = mainDisplayInfo.Density;
         }
 
-        //private void ZXingScannerView_OnScanResult(ZXing.Result result)
-        //{
-        //    Device.BeginInvokeOnMainThread(() =>
-        //    {
-        //        scanResultText.Text = result.Text + " (type: " + result.BarcodeFormat.ToString() + ")";
-        //    });
-        //}
+
+
+
 
 
         private void Camera_OnDetected(object sender, GoogleVisionBarCodeScanner.OnDetectedEventArg e)
@@ -83,17 +138,27 @@ namespace Livraria_App
             Camera.IsVisible = !Camera.IsVisible;
         }
 
-
-        private void inicio_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new LoginPage());
-
-        }
-
-
-
         private void Lanterna_Clicked(object sender, EventArgs e)
         {
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
+            // Orientation (Landscape, Portrait, Square, Unknown)
+            var orientation = mainDisplayInfo.Orientation;
+
+            // Rotation (0, 90, 180, 270)
+            var rotation = mainDisplayInfo.Rotation;
+
+            // Width (in pixels)
+            var width = mainDisplayInfo.Width;
+
+            // Height (in pixels)
+            var height = mainDisplayInfo.Height;
+
+            // Screen density
+            var density = mainDisplayInfo.Density;
+
+            DisplayAlert("DisplayInfo",  mainDisplayInfo.ToString() + orientation + rotation + width + height + density, "ok");
+            
             Camera.TorchOn = !Camera.TorchOn;
         }
 
@@ -113,3 +178,4 @@ namespace Livraria_App
         }
     }
 }
+

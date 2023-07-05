@@ -4,4 +4,13 @@
              xmlns:gv="clr-namespace:GoogleVisionBarCodeScanner;assembly=BarcodeScanner.XF"
              x:Class="Livraria_App.View.LeitorBarcodePage">
 
+
+
+
+    <AbsoluteLayout>
+        <BoxView x:Name="LeitorQRCodeBoxView"
+                 Color="Transparent"
+                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                 AbsoluteLayout.LayoutFlags="All" />
+    </AbsoluteLayout>
 </ContentPage>

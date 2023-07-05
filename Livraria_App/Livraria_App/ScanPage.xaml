@@ -1,89 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              xmlns:gv="clr-namespace:GoogleVisionBarCodeScanner;assembly=BarcodeScanner.XF"
              x:Class="Livraria_App.ScanPage">
 
-    <!--<zxing:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult" />-->
-
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="APROXIME A CÂMERA DO CÓDIGO" 
+                   VerticalTextAlignment="Center" 
+                   HorizontalTextAlignment="Center" 
+                   FontSize="24" 
+                   BackgroundColor="OrangeRed" 
+                   TextColor="White" 
+                   HeightRequest="70"
+                   Margin="0"
+                   VerticalOptions="StartAndExpand" />
 
-                <Label Text="APROXIME A CÂMERA DO CÓDIGO" 
-                       VerticalTextAlignment="Center" 
-                       HorizontalTextAlignment="Center" 
-                       FontSize="24" 
-                       BackgroundColor="OrangeRed" 
-                       TextColor="White" 
-                       HeightRequest="70"
-                       Margin="0"
-                       VerticalOptions="StartAndExpand" />
+            <Grid>
+                <BoxView x:Name="SterileField"
+                 BackgroundColor="LightGray"
+                 Opacity="0.5"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand" />
 
-            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="-6">
-                <Frame BackgroundColor="Transparent"
-                       VerticalOptions="Center"
+                <gv:CameraView x:Name="Camera"
+                       OnDetected="Camera_OnDetected"
+                       TorchOn="False"
+                       VibrationOnDetected="True"
+                       ScanInterval="500"
+                       IsScanning="True"
+                       PreviewWidth="30"
+                       WidthRequest="30"
+                       MinimumWidthRequest="30"
                        HorizontalOptions="Center"
-                       WidthRequest="1000"
-                       HeightRequest="1000"
-                       Margin="0"
-                       CornerRadius="1"
-                       HasShadow="False">
+                       VerticalOptions="Center" />
 
-                    <gv:CameraView x:Name="Camera"
-                                   OnDetected="Camera_OnDetected"
-                                   TorchOn="False"
-                                   VibrationOnDetected="True"
-                                   ScanInterval="500"
-                                   IsScanning="True" 
-                                   PreviewWidth="30"
-                                   WidthRequest="30"
-                                   MinimumWidthRequest="30"/>
+                <AbsoluteLayout>
+                    <BoxView x:Name="ScanField"
+                     BackgroundColor="Transparent"
+                     WidthRequest="200"
+                     HeightRequest="200"
+                     AbsoluteLayout.LayoutBounds="0.5, 0.5, 200, 200"
+                     AbsoluteLayout.LayoutFlags="PositionProportional" />
 
-                </Frame>
-
-                <BoxView BackgroundColor="White"
-                         Opacity=".3"
-                         WidthRequest="500"
-                         HeightRequest="331"
-                         VerticalOptions="StartAndExpand"
-                         HorizontalOptions="CenterAndExpand"
-                         />
-                <BoxView BackgroundColor="White"
-                         Opacity=".3"
-                         WidthRequest="500"
-                         HeightRequest="330.5"
-                         VerticalOptions="End"
-                         HorizontalOptions="CenterAndExpand"
-                         />
-                <BoxView BackgroundColor="White"
-                         Opacity=".3"
-                         WidthRequest="114"
-                         HeightRequest="272.5"
-                         VerticalOptions="Center"
-                         HorizontalOptions="Start"
-                         />
-                <BoxView BackgroundColor="White"
-                         Opacity=".3"
-                         WidthRequest="114"
-                         HeightRequest="272.5"
-                         VerticalOptions="Center"
-                         HorizontalOptions="End"
-                         />
-                
-                <Image Source="scan.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="300" WidthRequest="300" />
-
+                    <Label x:Name="scanResultText"
+                   Text=""
+                   FontSize="24"
+                   TextColor="Black"
+                   AbsoluteLayout.LayoutBounds="0.5, 0.9, 0.8, 50"
+                   AbsoluteLayout.LayoutFlags="WidthProportional" />
+                </AbsoluteLayout>
             </Grid>
-
-
+            
+            
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
                 <Button Text="Zoom in" x:Name="ZoomIn" Clicked="ZoomIn_Clicked" />
                 <Button Text="Zoom out" x:Name="ZoomOut" Clicked="ZoomOut_Clicked" />
                 <Button Text="Lanterna" x:Name="Lanterna" Clicked="Lanterna_Clicked" />
-                <Label x:Name="scanResultText" FontSize="24" />
                 <Button Text="LerQRCode" Opacity="0.3" x:Name="LerQRCode" Clicked="LerQRCode_Clicked"/>
             </StackLayout>
-
 
         </StackLayout>
     </ContentPage.Content>
