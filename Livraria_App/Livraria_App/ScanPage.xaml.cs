@@ -58,9 +58,8 @@ namespace Livraria_App
         }
         private void ZoomCamera(float zoom)
         {
-           
             
-                Camera.Scale *= zoom;
+                Camera.Scale += zoom;
             //  DisplayAlert("zoom:", Camera.Scale.ToString(), "ok");
 
 
@@ -92,6 +91,14 @@ namespace Livraria_App
         private void Lanterna_Clicked(object sender, EventArgs e)
         {
             Camera.TorchOn = !Camera.TorchOn;
+        }
+
+        private void ZoomSlider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            double zoomValue = e.NewValue; // Obter o novo valor do slider
+
+            // Atualizar o zoom da câmera com base no valor do slider
+            ZoomCamera((float)zoomValue);
         }
     }
 }
