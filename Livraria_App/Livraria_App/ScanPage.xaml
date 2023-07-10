@@ -10,39 +10,80 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Blue" Opacity="0.6">
-                <Frame x:Name="scannerFrame" BorderColor="Red" BackgroundColor="Transparent" IsClippedToBounds="True" HorizontalOptions="CenterAndExpand">
-                </Frame>
+            <Label Text="APROXIME A CÂMERA DO CÓDIGO" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize="24" 
+                       BackgroundColor="OrangeRed" 
+                       TextColor="White" 
+                       HeightRequest="70"
+                       Margin="0"
+                       VerticalOptions="StartAndExpand" />
 
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="-6">
                 <Frame BackgroundColor="Transparent"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
-                       WidthRequest="300"
-                       HeightRequest="300"
-                       CornerRadius="10"
-                       BorderColor="Red"
+                       WidthRequest="1000"
+                       HeightRequest="1000"
+                       Margin="0"
+                       CornerRadius="1"
                        HasShadow="False">
+
                     <gv:CameraView x:Name="Camera"
                                    OnDetected="Camera_OnDetected"
                                    TorchOn="False"
                                    VibrationOnDetected="True"
                                    ScanInterval="500"
                                    IsScanning="True" 
-                                   PreviewWidth="30"
-                                   WidthRequest="30"
-                                   MinimumWidthRequest="30"
-                                   BackgroundColor="Aqua"/>
+                                   PreviewWidth="300"
+                                   WidthRequest="300"
+                                   MinimumWidthRequest="30"/>
 
                 </Frame>
+
+                <!--<BoxView BackgroundColor="White"
+                         Opacity=".1"
+                         WidthRequest="500"
+                         HeightRequest="269"
+                         VerticalOptions="StartAndExpand"
+                         HorizontalOptions="CenterAndExpand"
+                         />
+                <BoxView BackgroundColor="White"
+                         Opacity=".1"
+                         WidthRequest="500"
+                         HeightRequest="270.5"
+                         VerticalOptions="End"
+                         HorizontalOptions="CenterAndExpand"
+                         />
+                <BoxView BackgroundColor="White"
+                         Opacity=".1"
+                         WidthRequest="114"
+                         HeightRequest="272.5"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Start"
+                         />
+                <BoxView BackgroundColor="White"
+                         Opacity=".1"
+                         WidthRequest="114"
+                         HeightRequest="222.5"
+                         VerticalOptions="Center"
+                         HorizontalOptions="End"
+                         />-->
+
+                <Image Source="scan.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="450" WidthRequest="450" />
+
             </Grid>
 
-            <Button Text="Ler QR Code" x:Name="LerQRCode" Clicked="LerQRCode_Clicked" HorizontalOptions="Center" />
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
                 <Button Text="Zoom in" x:Name="ZoomIn" Clicked="ZoomIn_Clicked" />
                 <Button Text="Zoom out" x:Name="ZoomOut" Clicked="ZoomOut_Clicked" />
+                <Button Text="Lanterna" x:Name="Lanterna" Clicked="Lanterna_Clicked" />
                 <Label x:Name="scanResultText" FontSize="24" />
+                <Button Text="LerQRCode" Opacity="0.3" x:Name="LerQRCode" Clicked="LerQRCode_Clicked"/>
             </StackLayout>
+
 
         </StackLayout>
     </ContentPage.Content>

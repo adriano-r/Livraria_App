@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BarcodeScanner.Mobile.XamarinForms" Version="6.3.0.29" />
     <PackageReference Include="BarcodeScanner.XF" Version="6.2.2-pre" />
     <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

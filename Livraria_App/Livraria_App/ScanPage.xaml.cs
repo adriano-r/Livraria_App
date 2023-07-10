@@ -1,4 +1,4 @@
-﻿using GoogleVisionBarCodeScanner;
+﻿using BarcodeScanner.Mobile;
 using Livraria_App.View;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace Livraria_App
         {
             //GoogleVisionBarCodeScanner.Methods.SetSupportBarcodeFormat(GoogleVisionBarCodeScanner.BarcodeFormats.QRCode | GoogleVisionBarCodeScanner.BarcodeFormats.Code39);
             InitializeComponent();
-            GoogleVisionBarCodeScanner.Methods.AskForRequiredPermission();
+            BarcodeScanner.Mobile.Methods.AskForRequiredPermission();
         }
 
         //private void ZXingScannerView_OnScanResult(ZXing.Result result)
@@ -28,7 +28,7 @@ namespace Livraria_App
         //}
 
 
-        private void Camera_OnDetected(object sender, GoogleVisionBarCodeScanner.OnDetectedEventArg e)
+        private void Camera_OnDetected(object sender, OnDetectedEventArg e)
         {
             List<BarcodeResult> obj = e.BarcodeResults;
 
@@ -87,6 +87,11 @@ namespace Livraria_App
         {
             Navigation.PushAsync(new LoginPage());
 
+        }
+
+        private void Lanterna_Clicked(object sender, EventArgs e)
+        {
+            Camera.TorchOn = !Camera.TorchOn;
         }
     }
 }
