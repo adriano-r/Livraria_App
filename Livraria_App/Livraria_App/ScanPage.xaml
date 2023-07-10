@@ -71,7 +71,7 @@
                          HorizontalOptions="End"
                          />-->
 
-                <Image Source="scan.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="450" WidthRequest="450" />
+                <Image Source="scan.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="400"  />
 
             </Grid>
 
