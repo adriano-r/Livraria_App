@@ -22,13 +22,13 @@
 
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="-6">
                 <Frame BackgroundColor="Transparent"
-           VerticalOptions="Center"
-           HorizontalOptions="Center"
-           WidthRequest="1000"
-           HeightRequest="1000"
-           Margin="0"
-           CornerRadius="1"
-           HasShadow="False">
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       WidthRequest="1000"
+                       HeightRequest="1000"
+                       Margin="0"
+                       CornerRadius="1"
+                       HasShadow="False">
 
                     <gv:CameraView x:Name="Camera"
                        OnDetected="Camera_OnDetected"
@@ -39,62 +39,82 @@
                        PreviewWidth="300"
                        WidthRequest="300"
                        MinimumWidthRequest="30"/>
-
+                    
                 </Frame>
 
                 <BoxView BackgroundColor="White"
-             Opacity=".1"
-             WidthRequest="500"
-             HeightRequest="285"
-             VerticalOptions="StartAndExpand"
-             HorizontalOptions="CenterAndExpand"
-             />
+                         Opacity=".1"
+                         WidthRequest="500"
+                         HeightRequest="285"
+                         VerticalOptions="End"
+                         HorizontalOptions="CenterAndExpand"
+                         />
+                
                 <BoxView BackgroundColor="White"
-             Opacity=".1"
-             WidthRequest="500"
-             HeightRequest="285"
-             VerticalOptions="End"
-             HorizontalOptions="CenterAndExpand"
-             />
+                         Opacity=".1"
+                         WidthRequest="500"
+                         HeightRequest="285"
+                         VerticalOptions="End"
+                         HorizontalOptions="CenterAndExpand"
+                         />
+                
                 <BoxView BackgroundColor="White"
-             Opacity=".1"
-             WidthRequest="70"
-             HeightRequest="363.5"
-             VerticalOptions="Center"
-             HorizontalOptions="Start"
-             />
+                         Opacity=".1"
+                         WidthRequest="70"
+                         HeightRequest="363.5"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Start"
+                         />
+                
                 <BoxView BackgroundColor="White"
-             Opacity=".1"
-             WidthRequest="70"
-             HeightRequest="363.5"
-             VerticalOptions="Center"
-             HorizontalOptions="End"
-             />
+                         Opacity=".1"
+                         WidthRequest="70"
+                         HeightRequest="363.5"
+                         VerticalOptions="Center"
+                         HorizontalOptions="End"
+                         />
 
-                <Image Source="quadro.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="400"  />
+                <Image Source="quadro.png" HorizontalOptions="Center" VerticalOptions="Center"  />
 
             </Grid>
 
-            <StackLayout Orientation="Horizontal"
-                     HorizontalOptions="Center"
-                     VerticalOptions="End"
-                     Margin="0,20,0,0">
+            <StackLayout 
+                Orientation="Horizontal" 
+                HorizontalOptions="CenterAndExpand" 
+                VerticalOptions="End" 
+                Margin="0,20,0,0" 
+                BackgroundColor="Black" 
+                Opacity="0.6"
+                HeightRequest="60">
+                <Image Source="zoom_out_icon.png" HorizontalOptions="Start" VerticalOptions="Center" Margin="5" HeightRequest="24" WidthRequest="24">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ZoomOut_Clicked" />
+                    </Image.GestureRecognizers>
+                </Image>
 
-                <Slider x:Name="ZoomSlider"
-                    Minimum="0.8"
-                    Maximum="1.2"
-                    Value="0.1"
-                    WidthRequest="200"
-                    ValueChanged="ZoomSlider_ValueChanged"
-                    Margin="5" />
-                <Button Text="Lanterna"
-                    x:Name="Lanterna"
-                    Clicked="Lanterna_Clicked"
-                    CornerRadius="5"
-                    BackgroundColor="#2196F3"
-                    TextColor="White"
-                    Margin="5" />
+                <Slider x:Name="ZoomSlider" Minimum="0" Maximum="1" Value="0.5" WidthRequest="200" ValueChanged="ZoomSlider_ValueChanged" Margin="5">
+                    <Slider.Resources>
+                        <Style TargetType="Slider">
+                            <Setter Property="ThumbColor" Value="White" />
+                        </Style>
+                    </Slider.Resources>
+                </Slider>
+
+                <Image Source="zoom_in_icon.png" HorizontalOptions="End" VerticalOptions="Center" Margin="5" HeightRequest="24" WidthRequest="24" ScaleX="-1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ZoomIn_Clicked" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Source="lanterna_icon.png" HorizontalOptions="End" VerticalOptions="Center" Margin="5" HeightRequest="24" WidthRequest="24">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Lanterna_Clicked" />
+                    </Image.GestureRecognizers>
+                </Image>
             </StackLayout>
+
+
+
 
         </StackLayout>
     </ContentPage.Content>
