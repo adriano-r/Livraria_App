@@ -13,9 +13,9 @@ namespace Livraria_App
     {
         public ScanPage()
         {
-            //GoogleVisionBarCodeScanner.Methods.SetSupportBarcodeFormat(GoogleVisionBarCodeScanner.BarcodeFormats.QRCode | GoogleVisionBarCodeScanner.BarcodeFormats.Code39);
             InitializeComponent();
             BarcodeScanner.Mobile.Methods.AskForRequiredPermission();
+
         }
 
         private void Camera_OnDetected(object sender, OnDetectedEventArg e)
@@ -38,7 +38,7 @@ namespace Livraria_App
         private void ZoomIn_Clicked(object sender, EventArgs e)
         {
             ZoomCamera(1.2f);
-            ZoomSlider.Value = Camera.Scale; // Update slider value
+            ZoomSlider.Value = Camera.Scale;
         }
 
         private void ZoomOut_Clicked(object sender, EventArgs e)
@@ -46,30 +46,38 @@ namespace Livraria_App
             if (Camera.Scale > 0.8f)
             {
                 ZoomCamera(0.8f);
-                ZoomSlider.Value = Camera.Scale; // Update slider value
+                ZoomSlider.Value = Camera.Scale;
             }
         }
 
         private void ZoomSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             double sliderValue = e.NewValue;
-            double zoomValue = 0.8 + (0.4 * sliderValue); // Map the slider value to the desired zoom range (0.8 to 1.2)
+            // double zoomValue = CustomScalingFunction(sliderValue);
+            double zoomValue = 0.8 + (0.4 * sliderValue);
 
             ZoomCamera((float)zoomValue);
         }
 
+        private double CustomScalingFunction(double value)
+        {
+            double scaleFactor = 2;
+            double scaledValue = Math.Pow(scaleFactor, value);
+
+            return scaledValue;
+        }
 
         private void ZoomCamera(float zoom)
         {
             float currentScale = (float)Camera.Scale;
             float targetScale = currentScale * zoom;
-            float incrementalZoom = (targetScale - currentScale) / 10; // Divide the difference by the number of steps
+            float incrementalZoom = (targetScale - currentScale) / 10;
 
             for (int i = 0; i < 10; i++)
             {
                 currentScale += incrementalZoom;
                 Camera.Scale = currentScale;
-                // You can introduce a small delay here if needed (e.g., Task.Delay(50))
+                //Task.Delay(50))
             }
         }
 

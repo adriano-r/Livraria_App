@@ -85,14 +85,27 @@
                 Margin="0,20,0,0" 
                 BackgroundColor="Black" 
                 Opacity="0.6"
-                HeightRequest="60">
-                <Image Source="zoom_out_icon.png" HorizontalOptions="Start" VerticalOptions="Center" Margin="5" HeightRequest="24" WidthRequest="24">
+                HeightRequest="60"
+                WidthRequest="500">
+                
+                <Image Source="zoom_out_icon.png"
+                       HorizontalOptions="Start" 
+                       VerticalOptions="Center" 
+                       Margin="5" 
+                       HeightRequest="24" 
+                       WidthRequest="24">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ZoomOut_Clicked" />
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Slider x:Name="ZoomSlider" Minimum="0" Maximum="1" Value="0.5" WidthRequest="200" ValueChanged="ZoomSlider_ValueChanged" Margin="5">
+                <Slider x:Name="ZoomSlider"
+                        Minimum="0"
+                        Maximum="1"
+                        Value="0.5"
+                        WidthRequest="200"
+                        ValueChanged="ZoomSlider_ValueChanged"
+                        Margin="5">
                     <Slider.Resources>
                         <Style TargetType="Slider">
                             <Setter Property="ThumbColor" Value="White" />
@@ -100,13 +113,25 @@
                     </Slider.Resources>
                 </Slider>
 
-                <Image Source="zoom_in_icon.png" HorizontalOptions="End" VerticalOptions="Center" Margin="5" HeightRequest="24" WidthRequest="24" ScaleX="-1">
+
+                <Image Source="zoom_in_icon.png" 
+                       HorizontalOptions="End" 
+                       VerticalOptions="Center"
+                       Margin="5" 
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       ScaleX="-1">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ZoomIn_Clicked" />
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Image Source="lanterna_icon.png" HorizontalOptions="End" VerticalOptions="Center" Margin="5" HeightRequest="24" WidthRequest="24">
+                <Image Source="lanterna_icon.png"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center"
+                       Margin="5"
+                       HeightRequest="24" 
+                       WidthRequest="24">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Lanterna_Clicked" />
                     </Image.GestureRecognizers>
