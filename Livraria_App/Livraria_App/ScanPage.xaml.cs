@@ -34,54 +34,30 @@ namespace Livraria_App
                 Camera.IsScanning = true;
             });
         }
-
         private void ZoomIn_Clicked(object sender, EventArgs e)
         {
-            ZoomCamera(1.2f);
-            ZoomSlider.Value = Camera.Scale;
+            float targetScale = (float)Camera.Scale * 1.2f;
+            ApplyZoom(targetScale);
         }
 
         private void ZoomOut_Clicked(object sender, EventArgs e)
         {
-            if (Camera.Scale > 0.8f)
-            {
-                ZoomCamera(0.8f);
-                ZoomSlider.Value = Camera.Scale;
-            }
+            float targetScale = (float)Camera.Scale * 0.8f;
+            if (targetScale > 0.8f)
+                ApplyZoom(targetScale);
         }
 
         private void ZoomSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            double sliderValue = e.NewValue;
-            // double zoomValue = CustomScalingFunction(sliderValue);
-            double zoomValue = 0.8 + (0.4 * sliderValue);
-
-            ZoomCamera((float)zoomValue);
+            float targetScale = (float)e.NewValue * 4.2f + 0.8f;
+            ApplyZoom(targetScale);
         }
 
-        private double CustomScalingFunction(double value)
+        private void ApplyZoom(float targetScale)
         {
-            double scaleFactor = 2;
-            double scaledValue = Math.Pow(scaleFactor, value);
-
-            return scaledValue;
+            Camera.Scale = targetScale;
+            ZoomSlider.Value = (Camera.Scale - 0.8) / 4.2;
         }
-
-        private void ZoomCamera(float zoom)
-        {
-            float currentScale = (float)Camera.Scale;
-            float targetScale = currentScale * zoom;
-            float incrementalZoom = (targetScale - currentScale) / 10;
-
-            for (int i = 0; i < 10; i++)
-            {
-                currentScale += incrementalZoom;
-                Camera.Scale = currentScale;
-                //Task.Delay(50))
-            }
-        }
-
-
 
         private void LerQRCode_Clicked(object sender, EventArgs e)
         {
