@@ -2,42 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
-             xmlns:gv="clr-namespace:GoogleVisionBarCodeScanner;assembly=BarcodeScanner.XF"
+             xmlns:gvb="clr-namespace:GoogleVisionBarCodeScanner;assembly=BarcodeScanner.XF"
+             xmlns:gv="clr-namespace:BarcodeScanner.Mobile;assembly=BarcodeScanner.Mobile.XamarinForms"
              x:Class="Livraria_App.ScanPage">
 
     <!--<zxing:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult" />-->
 
     <ContentPage.Content>
         <StackLayout>
-
             <Label Text="APROXIME A CÂMERA DO CÓDIGO" 
                        VerticalTextAlignment="Center" 
                        HorizontalTextAlignment="Center" 
                        FontSize="24" 
                        BackgroundColor="OrangeRed" 
                        TextColor="White" 
-                       HeightRequest="100"
+                       HeightRequest="90"
                        Margin="0"
                        VerticalOptions="StartAndExpand" />
 
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="-6">
-                <Frame BackgroundColor="Transparent"
+                <Frame x:Name="CameraFrame"
+                       BackgroundColor="Transparent"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
-                       WidthRequest="1000"
-                       HeightRequest="1000"
                        Margin="0"
                        CornerRadius="1"
+                       
                        HasShadow="False">
 
                     <gv:CameraView x:Name="Camera"
                        OnDetected="Camera_OnDetected"
                        TorchOn="False"
+                       Margin="0"
                        VibrationOnDetected="True"
                        ScanInterval="500"
                        IsScanning="True" 
-                       PreviewWidth="300"
-                       WidthRequest="300"
                        MinimumWidthRequest="30"/>
 
                 </Frame>
@@ -77,12 +76,10 @@
                 <Image Source="quadro.png" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="250" />
 
             </Grid>
-
             <StackLayout 
                 Orientation="Horizontal" 
                 HorizontalOptions="CenterAndExpand" 
-                VerticalOptions="End" 
-                Margin="0,20,0,0" 
+                VerticalOptions="EndAndExpand" 
                 BackgroundColor="Black" 
                 Opacity="0.6"
                 HeightRequest="60"
@@ -100,9 +97,9 @@
                 </Image>
 
                 <Slider x:Name="ZoomSlider"
-                        Minimum="0"
-                        Maximum="1"
-                        Value="0.5"
+                        Minimum="0.1"
+                        Value="0.2"
+                        Maximum="2"
                         WidthRequest="200"
                         ValueChanged="ZoomSlider_ValueChanged"
                         Margin="5">
@@ -127,11 +124,11 @@
                 </Image>
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
                     <Image Source="lanterna_icon.png"
-                       HorizontalOptions="End"
-                       VerticalOptions="Center"
-                       Margin="5"                           
-                       HeightRequest="30" 
-                       WidthRequest="30">
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           Margin="5"
+                           HeightRequest="40" 
+                           WidthRequest="40">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Lanterna_Clicked" />
                         </Image.GestureRecognizers>

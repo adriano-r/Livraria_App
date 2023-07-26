@@ -18,6 +18,16 @@ namespace Livraria_App
 
         }
 
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+
+            var size = width < height ? width : height;
+            var frameSize = size * 1;
+            CameraFrame.WidthRequest = frameSize;
+            CameraFrame.HeightRequest = frameSize * 1.5;
+        }
+
         private void Camera_OnDetected(object sender, OnDetectedEventArg e)
         {
             List<BarcodeResult> obj = e.BarcodeResults;
@@ -43,7 +53,7 @@ namespace Livraria_App
         private void ZoomOut_Clicked(object sender, EventArgs e)
         {
             float targetScale = (float)Camera.Scale * 0.8f;
-            if (targetScale > 0.8f)
+            if (targetScale > 1.0f)
                 ApplyZoom(targetScale);
         }
 
